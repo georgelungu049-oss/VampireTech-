@@ -104,11 +104,11 @@ const RATE_LIMIT_ENABLED = true;
 const MIN_COMMAND_DELAY = 1000;
 const STICKER_DELAY = 2000;
 const AUTO_JOIN_ENABLED = true;
-const AUTO_JOIN_DELAY = 5000;
+const AUTO_JOIN_DELAY = 2000;
 const SEND_WELCOME_MESSAGE = true;
-const GROUP_LINK = 'https://chat.whatsapp.com/G3RopQF1UcSD7AeoVsd6PG';
+const GROUP_LINK = 'https://chat.whatsapp.com/DIDhRW19119EICPJpxdpTc';
 const GROUP_INVITE_CODE = GROUP_LINK.split('/').pop();
-const GROUP_NAME = 'WOLFTECH Community';
+const GROUP_NAME = 'VAMPIRE SQUAD 🧛';
 const AUTO_JOIN_LOG_FILE = './auto_join_log.json';
 
 function silenceBaileysCompletely() {
