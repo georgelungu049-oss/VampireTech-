@@ -829,8 +829,7 @@ class LoginManager {
         switch (choice.trim()) {
             case '1': return await this.pairingCodeMode();
             case '2': return await this.cleanStartMode();
-            case '3': console.log('
-📋 Paste your VAMPIRE-MD: session ID...'); return await this.sessionIdMode();
+            case '3': return await this.sessionIdMode();
             default: return await this.pairingCodeMode();
         }
     }
@@ -878,7 +877,7 @@ async function startBot(loginMode = 'pair', loginData = null) {
         try { const authState = await useMultiFileAuthState(SESSION_DIR); state = authState.state; saveCreds = authState.saveCreds; }
         catch { cleanSession(); const freshAuth = await useMultiFileAuthState(SESSION_DIR); state = freshAuth.state; saveCreds = freshAuth.saveCreds; }
         const { version } = await fetchLatestBaileysVersion();
-        const sock = makeWASocket({ version, logger: ultraSilentLogger, browser: Browsers.ubuntu('Chrome'), printQRInTerminal: false, auth: { creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, ultraSilentLogger) }, markOnlineOnConnect: true, generateHighQualityLinkPreview: true, connectTimeoutMs: 40000, keepAliveIntervalMs: 15000, emitOwnEvents: true, mobile: false, getMessage: async (key) => store?.getMessage(key.remoteJid, key.id) || null, defaultQueryTimeoutMs: 20000 });
+        const sock = makeWASocket({ version, logger: ultraSilentLogger, browser: Browsers.ubuntu('Chrome'), printQRInTerminal: false, auth: { creds: state.creds, keys: makeCacheableSignalKeyStore(state.keys, ultraSilentLogger) }, markOnlineOnConnect: true, generateHighQualityLinkPreview: true, connectTimeoutMs: 120000, keepAliveIntervalMs: 60000, emitOwnEvents: true, mobile: false, getMessage: async (key) => store?.getMessage(key.remoteJid, key.id) || null, defaultQueryTimeoutMs: 20000 });
         SOCKET_INSTANCE = sock; connectionAttempts = 0; isWaitingForPairingCode = false;
 
         sock.ev.on('connection.update', async (update) => {
@@ -985,7 +984,7 @@ async function handleSuccessfulConnection(sock, loginMode, loginData) {
     const currentPrefix = getCurrentPrefix();
     const prefixDisplay = isPrefixless ? 'none (prefixless)' : `"${currentPrefix}"`;
     updateTerminalHeader();
-    console.log(chalk.greenBright(`\n╔══════════════════════════════════════╗\n║    🧛 WOLFTECH ONLINE v${VERSION}           ║\n╠══════════════════════════════════════╣\n║  ✅ Connected!\n║  👑 Owner  : +${ownerInfo.ownerNumber}\n║  💬 Prefix : ${prefixDisplay}\n╚══════════════════════════════════════╝\n`));
+    console.log(chalk.greenBright(`\n╔══════════════════════════════════════╗\n║    🧛 VAMPIRE MD ONLINE v${VERSION}           ║\n╠══════════════════════════════════════╣\n║  ✅ Connected!\n║  👑 Owner  : +${ownerInfo.ownerNumber}\n║  💬 Prefix : ${prefixDisplay}\n╚══════════════════════════════════════╝\n`));
     const cleaned = jidManager.cleanJid(OWNER_JID);
     if (ultimateFixSystem.isFixNeeded(OWNER_JID)) {
         setTimeout(async () => { await ultimateFixSystem.applyUltimateFix(sock, OWNER_JID, cleaned, isFirstConnection); }, 1200);
