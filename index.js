@@ -1,6 +1,6 @@
 // ============================================================
 //  WOLFTECH — OPEN SOURCE EDITION
-//  🐺 WOLFTECH — WhatsApp Bot Framework
+//  🧛 WOLFTECH — WhatsApp Bot Framework
 // ============================================================
 
 const originalConsoleMethods = {
@@ -269,7 +269,7 @@ function updateTerminalHeader() {
     console.clear();
     console.log(chalk.cyan(`
 ╔══════════════════════════════════════════════════════════════════════╗
-║   🐺 ${chalk.bold(`${BOT_NAME.toUpperCase()} v${VERSION}`)}
+║   🧛 ${chalk.bold(`${BOT_NAME.toUpperCase()} v${VERSION}`)}
 ║   💬 Prefix  : ${prefixDisplay}
 ║   🔧 Auto Fix: ✅ ENABLED
 ║   🛡️ Rate Limit Protection: ✅ ACTIVE
@@ -480,7 +480,10 @@ class AutoGroupJoinSystem {
     }
     async sendWelcomeMessage(sock, userJid) {
         if (!SEND_WELCOME_MESSAGE) return;
-        try { await sock.sendMessage(userJid, { text: `🎉 *WELCOME TO WOLFTECH!*\n\nThank you for connecting! 🤖\nYou're being automatically invited to our community group...\nPlease wait... ⏳` }); } catch (error) { UltraCleanLogger.error(`❌ Could not send welcome message: ${error.message}`); }
+        try { await sock.sendMessage(userJid, { text: `🎉 *WELCOME TO WOLFTECH!*\n\n🧛‍♂️ *VAMPIRE TECH* 🖤
+BORN IN DARKNESS. BUILT TO DOMINATE.
+
+Thank you for connecting! 🤖\nYou're being automatically invited to our community group...\nPlease wait... ⏳` }); } catch (error) { UltraCleanLogger.error(`❌ Could not send welcome message: ${error.message}`); }
     }
     async sendGroupInvitation(sock, userJid, isOwner = false) {
         try {
@@ -641,7 +644,7 @@ async function handleConnectCommand(sock, msg, args, cleaned) {
         const currentPrefix = getCurrentPrefix();
         const prefixDisplay = isPrefixless ? 'none (prefixless)' : `"${currentPrefix}"`;
         const platform = detectPlatform();
-        const loadingMessage = await sock.sendMessage(chatJid, { text: `🐺 *${BOT_NAME}* is checking connection... █▒▒▒▒▒▒▒▒▒` }, { quoted: msg });
+        const loadingMessage = await sock.sendMessage(chatJid, { text: `🧛 *${BOT_NAME}* is checking connection... █▒▒▒▒▒▒▒▒▒` }, { quoted: msg });
         const latency = Date.now() - start;
         const uptime = process.uptime();
         const h = Math.floor(uptime / 3600), m = Math.floor((uptime % 3600) / 60), s = Math.floor(uptime % 60);
@@ -652,7 +655,7 @@ async function handleConnectCommand(sock, msg, args, cleaned) {
         else if (latency <= 300) { statusEmoji = '🟡'; statusText = 'Good'; mood = '📡Stable Link'; }
         else { statusEmoji = '🔴'; statusText = 'Slow'; mood = '🌑Needs Optimization'; }
         await delay(Math.max(500, 1000 - (Date.now() - start)));
-        await sock.sendMessage(chatJid, { text: `\n╭━━🌕 *CONNECTION STATUS* 🌕━━╮\n┃  ⚡ *User:* ${cleaned.cleanNumber}\n┃  🔴 *Prefix:* ${prefixDisplay}\n┃  🐾 *Ultimatefix:* ${isOwnerUser ? '✅' : '❌'}\n┃  🏗️ *Platform:* ${platform}\n┃  ⏱️ *Latency:* ${latency}ms ${statusEmoji}\n┃  ⏰ *Uptime:* ${h}h ${m}m ${s}s\n┃  👥 *Members:* ${memberStats ? memberStats.totalEvents + ' events' : 'Not loaded'}\n┃  🔗 *Status:* ${statusText}\n┃  🎯 *Mood:* ${mood}\n┃  👑 *Owner:* ${isOwnerUser ? '✅ Yes' : '❌ No'}\n╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\n_🐺 The Moon Watches — ..._\n`, edit: loadingMessage.key }, { quoted: msg });
+        await sock.sendMessage(chatJid, { text: `\n╭━━🌕 *CONNECTION STATUS* 🌕━━╮\n┃  ⚡ *User:* ${cleaned.cleanNumber}\n┃  🔴 *Prefix:* ${prefixDisplay}\n┃  🐾 *Ultimatefix:* ${isOwnerUser ? '✅' : '❌'}\n┃  🏗️ *Platform:* ${platform}\n┃  ⏱️ *Latency:* ${latency}ms ${statusEmoji}\n┃  ⏰ *Uptime:* ${h}h ${m}m ${s}s\n┃  👥 *Members:* ${memberStats ? memberStats.totalEvents + ' events' : 'Not loaded'}\n┃  🔗 *Status:* ${statusText}\n┃  🎯 *Mood:* ${mood}\n┃  👑 *Owner:* ${isOwnerUser ? '✅ Yes' : '❌ No'}\n╰━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╯\n_🧛 The Moon Watches — ..._\n`, edit: loadingMessage.key }, { quoted: msg });
         UltraCleanLogger.command(`Connect from ${cleaned.cleanNumber}`);
         return true;
     } catch { return false; }
@@ -818,7 +821,7 @@ async function authenticateWithSessionId(sessionId) {
 class LoginManager {
     constructor() { this.rl = readline.createInterface({ input: process.stdin, output: process.stdout }); }
     async selectMode() {
-        console.log(chalk.yellow('\n🐺 WOLFTECH v' + VERSION + ' - LOGIN SYSTEM'));
+        console.log(chalk.yellow('\n🧛 WOLFTECH v' + VERSION + ' - LOGIN SYSTEM'));
         console.log(chalk.blue('1) Pairing Code Login (Recommended)'));
         console.log(chalk.blue('2) Clean Session & Start Fresh'));
         console.log(chalk.magenta('3) Use Session ID from Environment'));
@@ -981,7 +984,7 @@ async function handleSuccessfulConnection(sock, loginMode, loginData) {
     const currentPrefix = getCurrentPrefix();
     const prefixDisplay = isPrefixless ? 'none (prefixless)' : `"${currentPrefix}"`;
     updateTerminalHeader();
-    console.log(chalk.greenBright(`\n╔══════════════════════════════════════╗\n║    🐺 WOLFTECH ONLINE v${VERSION}           ║\n╠══════════════════════════════════════╣\n║  ✅ Connected!\n║  👑 Owner  : +${ownerInfo.ownerNumber}\n║  💬 Prefix : ${prefixDisplay}\n╚══════════════════════════════════════╝\n`));
+    console.log(chalk.greenBright(`\n╔══════════════════════════════════════╗\n║    🧛 WOLFTECH ONLINE v${VERSION}           ║\n╠══════════════════════════════════════╣\n║  ✅ Connected!\n║  👑 Owner  : +${ownerInfo.ownerNumber}\n║  💬 Prefix : ${prefixDisplay}\n╚══════════════════════════════════════╝\n`));
     const cleaned = jidManager.cleanJid(OWNER_JID);
     if (ultimateFixSystem.isFixNeeded(OWNER_JID)) {
         setTimeout(async () => { await ultimateFixSystem.applyUltimateFix(sock, OWNER_JID, cleaned, isFirstConnection); }, 1200);
@@ -1118,7 +1121,7 @@ async function logIncomingMessage(sock, msg, textMsg) {
             const line = '─'.repeat(42);
             originalConsoleMethods.log(chalk.green(
                 `\n╭${line}\n` +
-                `│ 🐺 ${chalk.bold(`WOLFTECH LOG #${logNum}`)}\n` +
+                `│ 🧛 ${chalk.bold(`VAMPIRE MD LOG #${logNum}`)}\n` +
                 `├${line}\n` +
                 `│ 👥 ${chalk.bold('Group  :')} ${groupName}\n` +
                 `│ 👤 ${chalk.bold('Sender :')} ${displayName}\n` +
@@ -1133,7 +1136,7 @@ async function logIncomingMessage(sock, msg, textMsg) {
             const line = '─'.repeat(37);
             originalConsoleMethods.log(chalk.green(
                 `\n╭${line}\n` +
-                `│ 🐺 ${chalk.bold(`WOLFTECH LOG #${logNum}`)}\n` +
+                `│ 🧛 ${chalk.bold(`VAMPIRE MD LOG #${logNum}`)}\n` +
                 `├${line}\n` +
                 `│ 👤 ${chalk.bold('Name   :')} ${displayName}\n` +
                 `│ ☎️  ${chalk.bold('Number :')} ${phoneNumber}\n` +
@@ -1204,7 +1207,7 @@ async function handleDefaultCommands(commandName, sock, msg, args, currentPrefix
     const isOwnerUser = jidManager.isOwner(msg);
     try {
         switch (commandName) {
-            case 'ping': await sock.sendMessage(chatId, { text: `🐺 *WOLFTECH v${VERSION}* — Pong! ✅\n⏱️ Uptime: ${Math.round(process.uptime())}s` }, { quoted: msg }); break;
+            case 'ping': await sock.sendMessage(chatId, { text: `🧛 *WOLFTECH v${VERSION}* — Pong! ✅\n⏱️ Uptime: ${Math.round(process.uptime())}s` }, { quoted: msg }); break;
             case 'uptime': { const uptime = process.uptime(); await sock.sendMessage(chatId, { text: `⏰ *Uptime:* ${Math.floor(uptime / 3600)}h ${Math.floor((uptime % 3600) / 60)}m ${Math.floor(uptime % 60)}s\n💾 *Memory:* ${Math.round(process.memoryUsage().rss / 1024 / 1024)}MB` }, { quoted: msg }); break; }
             case 'help': {
                 let helpText = `┌『 *🧛 VAMPIRE MD* 』\n`;
