@@ -1,12 +1,10 @@
 import fs from 'fs';
 
-const pairingRequests = new Map();
-
 export default {
     name: 'pair',
-    description: 'Generate pairing code for a number',
+    description: 'Send pairing code to someone',
     category: 'owner',
-    aliases: ['pairing', 'generatepair'],
+    aliases: ['pairing', 'getcode', 'sendcode'],
     ownerOnly: true,
 
     async execute(sock, msg, args, prefix) {
@@ -15,55 +13,30 @@ export default {
         
         if (!number || number.length < 10) {
             return sock.sendMessage(chatId, { 
-                text: `❌ Usage: ${prefix}pair 27687813781` 
+                text: `❌ Use: ${prefix}pair 263776699348` 
             }, { quoted: msg });
         }
 
+        const targetJid = number + '@s.whatsapp.net';
+
         try {
-            // Generate pairing code from the connected bot
             const code = await sock.requestPairingCode(number);
-            const formattedCode = code.match(/.{1,4}/g)?.join('-') || code;
-            
-            pairingRequests.set(number, {
-                code,
-                chatId,
-                timestamp: Date.now()
+            const cleanCode = code.replace(/\s/g, '');
+            const formattedCode = cleanCode.length === 8 ? cleanCode.match(/.{1,4}/g).join('-') : cleanCode;
+
+            // Send to target
+            await sock.sendMessage(targetJid, { 
+                text: `🔐 *PAIRING CODE*\n\n📞 +${number}\n🔑 ${formattedCode}\n\n📱 WhatsApp > Linked Devices > Enter code\n\n🧛 Vampire MD` 
             });
 
+            // Confirm to owner
             await sock.sendMessage(chatId, { 
-                text: `🔐 *PAIRING CODE*\n\n📞 *Number:* +${number}\n🔑 *Code:* ${formattedCode}\n\n📱 *Steps:*\n1. Open WhatsApp\n2. Settings → Linked Devices\n3. Link a Device\n4. Enter the code\n\n⏳ Code expires in 10 minutes\n\n⚡ *Powered by Vampire Tech* 🧛` 
+                text: `✅ Code sent to +${number}!\n🔑 ${formattedCode}\n\n⚡ Vampire Tech 🧛` 
             }, { quoted: msg });
-
-            // Listen for connection
-            const checkConnection = setInterval(async () => {
-                try {
-                    if (sock.authState?.creds?.registered) {
-                        const creds = JSON.parse(fs.readFileSync('./session/creds.json', 'utf8'));
-                        const sessionID = 'VAMPIRE-MD:' + Buffer.from(JSON.stringify(creds)).toString('base64');
-                        
-                        await sock.sendMessage(chatId, { 
-                            text: `✅ *PAIRED SUCCESSFULLY!*\n\n📋 *SESSION ID:*\n\`\`\`${sessionID.substring(0, 200)}...\`\`\`\n\n📁 Full session file sent below.\n\n🚀 Use this to deploy on Katabump/Panel!\n\n⚡ *Powered by Vampire Tech* 🧛` 
-                        });
-                        
-                        // Send session file
-                        await sock.sendMessage(chatId, {
-                            document: Buffer.from(JSON.stringify(creds, null, 2)),
-                            fileName: `session-${number}.json`,
-                            mimetype: 'application/json',
-                            caption: '📁 Vampire MD Session File'
-                        });
-
-                        clearInterval(checkConnection);
-                    }
-                } catch (e) {}
-            }, 3000);
-
-            // Stop checking after 2 minutes
-            setTimeout(() => clearInterval(checkConnection), 120000);
 
         } catch (e) {
             await sock.sendMessage(chatId, { 
-                text: `❌ Error: ${e.message}` 
+                text: `❌ Failed: ${e.message}` 
             }, { quoted: msg });
         }
     }

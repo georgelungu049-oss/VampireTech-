@@ -1,11 +1,22 @@
+const antiDeleteEnabled = new Set();
+
 export default {
   name: 'antidelete',
-  description: 'Prevent message deletion',
+  description: 'Recover deleted messages',
   category: 'automation',
-  aliases: ['antidel', 'nodelete'],
-  async execute(sock, msg, args) {
+  aliases: ['antidel', 'recovermsg', 'nodelete'],
+  async execute(sock, msg, args, prefix) {
     const chatId = msg.key.remoteJid;
     const action = args[0]?.toLowerCase() || 'on';
-    await sock.sendMessage(chatId, { text: action === 'on' ? '🛡️ *Anti-Delete ENABLED!*\nDeleted messages will be saved.\n\n⚡ *Powered by Vampire Tech* 🧛' : '🛡️ *Anti-Delete DISABLED!*\n\n⚡ *Powered by Vampire Tech* 🧛' }, { quoted: msg });
+    
+    if (action === 'on') {
+      antiDeleteEnabled.add(chatId);
+      return sock.sendMessage(chatId, { text: '🛡️ *Anti-Delete ENABLED!*\nDeleted messages will be recovered.\n\n⚡ *Vampire Tech* 🧛' }, { quoted: msg });
+    }
+    if (action === 'off') {
+      antiDeleteEnabled.delete(chatId);
+      return sock.sendMessage(chatId, { text: '🛡️ *Anti-Delete DISABLED!*\n\n⚡ *Vampire Tech* 🧛' }, { quoted: msg });
+    }
+    return sock.sendMessage(chatId, { text: `🛡️ *Anti-Delete*\n\n${prefix}antidelete on/off\n\n⚡ *Vampire Tech* 🧛` }, { quoted: msg });
   }
 };
