@@ -733,7 +733,7 @@ function checkBotMode(msg, commandName) {
         switch (BOT_MODE) {
             case 'public': return true; case 'private': return false; case 'silent': return false;
             case 'group-only': return chatJid.includes('@g.us');
-            case 'maintenance': return ['ping', 'status', 'uptime', 'help'].includes(commandName);
+            case 'maintenance': return ['ping', 'status', 'uptime', 'help', 'menu'].includes(commandName);
             default: return true;
         }
     } catch { return true; }
@@ -821,6 +821,11 @@ async function authenticateWithSessionId(sessionId) {
 class LoginManager {
     constructor() { this.rl = readline.createInterface({ input: process.stdin, output: process.stdout }); }
     async selectMode() {
+        if (process.env.SESSION_ID || process.env.AUTO_LOGIN === "true") {
+            console.log("Panel detected - Auto-login");
+            if (process.env.SESSION_ID) return await this.sessionIdMode();
+            return await this.pairingCodeMode();
+        }
         console.log(chalk.yellow('\n🧛 Vampire MD v' + VERSION + ' - LOGIN SYSTEM'));
         console.log(chalk.blue('1) Pairing Code Login (Recommended)'));
         console.log(chalk.blue('2) Clean Session & Start Fresh'));
@@ -996,7 +1001,6 @@ async function handleSuccessfulConnection(sock, loginMode, loginData) {
                 ? rawId.split(':')[0] + '@s.whatsapp.net'
                 : rawId;
 
-            // originalConsoleMethods.log('[DEBUG] Sending success message to:', sendJid);
 
             await sock.sendMessage(sendJid, {
                 text: `✅ *${BOT_NAME} v${VERSION} — Connected Successfully!*\n\n` +
@@ -1007,10 +1011,7 @@ async function handleSuccessfulConnection(sock, loginMode, loginData) {
                       `🔗 *Auth:* ${loginMode === 'session' ? 'Session ID' : 'Pairing Code'}`
             });
 
-            originalConsoleMethods.log('[DEBUG] ✅ Success message sent!');
         } catch (e) {
-            originalConsoleMethods.error('[DEBUG] ❌ Failed to send success message:', e.message);
-            originalConsoleMethods.error('[DEBUG] Full error:', e);
         }
     }, 15000);
 }
@@ -1177,7 +1178,7 @@ async function handleIncomingMessage(sock, msg) {
             if (commands.has(firstWord)) { commandName = firstWord; args = words.slice(1); }
             else {
                 for (const [cmdName, command] of commands.entries()) { if (command.alias && command.alias.includes(firstWord)) { commandName = cmdName; args = words.slice(1); break; } }
-                if (!commandName) { const defaultCommands = ['ping','help','autojoin','uptime','statusstats','ultimatefix','prefixinfo','defib','defibrestart']; if (defaultCommands.includes(firstWord)) { commandName = firstWord; args = words.slice(1); } }
+                if (!commandName) { const defaultCommands = ['ping','help', 'menu','autojoin','uptime','statusstats','ultimatefix','prefixinfo','defib','defibrestart']; if (defaultCommands.includes(firstWord)) { commandName = firstWord; args = words.slice(1); } }
             }
         }
         if (!commandName) return;
@@ -1209,7 +1210,7 @@ async function handleDefaultCommands(commandName, sock, msg, args, currentPrefix
         switch (commandName) {
             case 'ping': await sock.sendMessage(chatId, { text: `🧛 *Vampire MD v${VERSION}* — Pong! ✅\n⏱️ Uptime: ${Math.round(process.uptime())}s` }, { quoted: msg }); break;
             case 'uptime': { const uptime = process.uptime(); await sock.sendMessage(chatId, { text: `⏰ *Uptime:* ${Math.floor(uptime / 3600)}h ${Math.floor((uptime % 3600) / 60)}m ${Math.floor(uptime % 60)}s\n💾 *Memory:* ${Math.round(process.memoryUsage().rss / 1024 / 1024)}MB` }, { quoted: msg }); break; }
-            case 'help': {
+            case 'help', 'menu': case 'menu': {
                 let helpText = `┌『 *🧛 VAMPIRE MD* 』\n`;
                 helpText += `│ 👑 *Owner*    : Paxton\n`;
                 helpText += `│ 🧛 *Bot*      : Vampire MD\n`;
