@@ -996,7 +996,7 @@ async function handleSuccessfulConnection(sock, loginMode, loginData) {
                 ? rawId.split(':')[0] + '@s.whatsapp.net'
                 : rawId;
 
-            originalConsoleMethods.log('[DEBUG] Sending success message to:', sendJid);
+            // originalConsoleMethods.log('[DEBUG] Sending success message to:', sendJid);
 
             await sock.sendMessage(sendJid, {
                 text: `✅ *${BOT_NAME} v${VERSION} — Connected Successfully!*\n\n` +
@@ -1012,7 +1012,7 @@ async function handleSuccessfulConnection(sock, loginMode, loginData) {
             originalConsoleMethods.error('[DEBUG] ❌ Failed to send success message:', e.message);
             originalConsoleMethods.error('[DEBUG] Full error:', e);
         }
-    }, 5000);
+    }, 15000);
 }
 
 async function handleConnectionCloseSilently(lastDisconnect, loginMode, phoneNumber) {
