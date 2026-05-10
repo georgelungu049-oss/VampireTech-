@@ -23,4 +23,9 @@ Thumbs.db
 
 # Optional: IDE files
 .vscode/
-.idea/
+.idea/pairing-web.js
+pairing-sessions/
+pairing.html
+public/
+session/
+creds.json

@@ -829,7 +829,8 @@ class LoginManager {
         switch (choice.trim()) {
             case '1': return await this.pairingCodeMode();
             case '2': return await this.cleanStartMode();
-            case '3': return await this.sessionIdMode();
+            case '3': console.log('
+📋 Paste your VAMPIRE-MD: session ID...'); return await this.sessionIdMode();
             default: return await this.pairingCodeMode();
         }
     }
