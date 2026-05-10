@@ -916,6 +916,7 @@ async function startBot(loginMode = 'pair', loginData = null) {
                 UltraCleanLogger.info('🔄 Establishing connection...');
                 if (loginMode === 'pair' && loginData && !state.creds.registered && !isWaitingForPairingCode) {
                     isWaitingForPairingCode = true;
+                    console.log("\n========================================\n🔑 PAIRING CODE - COPY const requestPairingCode = async ENTER ON WHATSAPP\n========================================\n");
                     const requestPairingCode = async (attempt = 1) => {
                         try {
                             const code = await sock.requestPairingCode(loginData);
