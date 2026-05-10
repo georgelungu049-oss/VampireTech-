@@ -1,0 +1,1 @@
+export default { name: 'weather', description: 'Get weather (placeholder)', category: 'tools', aliases: ['temp'], async execute(sock, msg, args) { const chatId = msg.key.remoteJid; const city = args.join(' ') || 'Nairobi'; await sock.sendMessage(chatId, { text: `🌤️ *Weather: ${city}*\n🌡️ 25°C | 💧 65% | 🌬️ 12km/h\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg }); } };

@@ -1207,8 +1207,19 @@ async function handleDefaultCommands(commandName, sock, msg, args, currentPrefix
             case 'ping': await sock.sendMessage(chatId, { text: `🐺 *WOLFTECH v${VERSION}* — Pong! ✅\n⏱️ Uptime: ${Math.round(process.uptime())}s` }, { quoted: msg }); break;
             case 'uptime': { const uptime = process.uptime(); await sock.sendMessage(chatId, { text: `⏰ *Uptime:* ${Math.floor(uptime / 3600)}h ${Math.floor((uptime % 3600) / 60)}m ${Math.floor(uptime % 60)}s\n💾 *Memory:* ${Math.round(process.memoryUsage().rss / 1024 / 1024)}MB` }, { quoted: msg }); break; }
             case 'help': {
-                let helpText = `🐺 *${BOT_NAME} v${VERSION} HELP*\n\n📋 *Prefix:* ${isPrefixless ? 'none (prefixless)' : `"${currentPrefix}"`}\n📊 *Total Commands:* ${commands.size}\n\n`;
-                for (const category of commandCategories.keys()) { const cmdList = commandCategories.get(category); helpText += `*${category.toUpperCase()}*\n${cmdList.map(c => `• ${currentPrefix}${c}`).join('\n')}\n\n`; }
+                let helpText = `┌『 *🧛 VAMPIRE MD* 』\n`;
+                helpText += `│ 👑 *Owner*    : Paxton\n`;
+                helpText += `│ 🧛 *Bot*      : Vampire MD\n`;
+                helpText += `│ 📌 *Version*  : ${VERSION}\n`;
+                helpText += `│ 💬 *Prefix*   : ${isPrefixless ? 'none' : `${currentPrefix}`}\n`;
+                helpText += `│ 📅 *Date*     : ${new Date().toLocaleDateString('en-GB', { day: 'numeric', month: 'short', year: 'numeric' })}\n`;
+                helpText += `│ 🕐 *Time*     : ${new Date().toLocaleTimeString()}\n`;
+                helpText += `│ ⏰ *Runtime*  : ${Math.floor(process.uptime() / 3600)}h ${Math.floor((process.uptime() % 3600) / 60)}m ${Math.floor(process.uptime() % 60)}s\n`;
+                helpText += `│ 💾 *Memory*   : ${(process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2)} MB\n`;
+                helpText += `│ 📊 *Commands* : ${commands.size}\n`;
+                helpText += `│ 📡 *Status*   : 🟢 ONLINE\n\n`;
+                for (const category of commandCategories.keys()) { const cmdList = commandCategories.get(category); helpText += `📂 *${category.toUpperCase()}*\n${cmdList.map(c => `▸ ${currentPrefix}${c}`).join('\n')}\n\n`; }
+                helpText += `\n> Powered by VampireTech🧛`;
                 await sock.sendMessage(chatId, { text: helpText }, { quoted: msg }); break;
             }
             case 'statusstats': { if (!statusDetector) { await sock.sendMessage(chatId, { text: '❌ Status Detector not initialized' }, { quoted: msg }); break; } const stats = statusDetector.getStats(); await sock.sendMessage(chatId, { text: `👁️ *STATUS DETECTOR STATS*\n\n📊 Total Detected: ${stats.totalDetected}\n🕒 Last Detection: ${stats.lastDetection}\n🔧 Detection Enabled: ${stats.detectionEnabled ? '✅' : '❌'}` }, { quoted: msg }); break; }
