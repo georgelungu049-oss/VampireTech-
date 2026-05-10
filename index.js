@@ -25,7 +25,7 @@ const shouldShowLog = (args) => {
     if (!lowerMsg.includes('baileys') && !lowerMsg.includes('signal') &&
         !lowerMsg.includes('session') && !lowerMsg.includes('buffer') &&
         !lowerMsg.includes('key')) return true;
-    const noisyPatterns = ['closing session', 'sessionentry', 'registrationid',
+    const noisyPatterns = ['closing session','Closing open session', 'sessionentry', 'registrationid',
         'currentratchet', 'buffer', '05 ', '0x', 'failed to decrypt'];
     return !noisyPatterns.some(pattern => lowerMsg.includes(pattern));
 };
@@ -41,7 +41,7 @@ for (const method of Object.keys(originalConsoleMethods)) {
 function setupProcessFilter() {
     const originalStdoutWrite = process.stdout.write;
     const originalStderrWrite = process.stderr.write;
-    const sessionPatterns = ['closing session','sessionentry','registrationid','currentratchet',
+    const sessionPatterns = ['closing session','Closing open session','sessionentry','registrationid','currentratchet',
         'indexinfo','pendingprekey','_chains','ephemeralkeypair','lastremoteephemeralkey','rootkey','basekey'];
     const filterOutput = (chunk) => {
         const lowerChunk = chunk.toString().toLowerCase();
@@ -121,7 +121,7 @@ setupProcessFilter();
 class UltraCleanLogger {
     static log(...args) {
         const message = args.join(' ').toLowerCase();
-        const suppressPatterns = ['buffer','timeout','transaction','failed to decrypt','received error','sessionerror','bad mac','stream errored','baileys','whatsapp','ws','closing session','sessionentry','_chains','registrationid','currentratchet','indexinfo','pendingprekey','ephemeralkeypair','lastremoteephemeralkey','rootkey','basekey','signal','key','ratchet','encryption','decryption','qr','scan','pairing','connection.update','creds.update','messages.upsert','group','participant','metadata','presence.update','chat.update','message.receipt.update','message.update','keystore','keypair','pubkey','privkey','<buffer','05 ','0x','signalkey','signalprotocol','sessionstate','senderkey','groupcipher','signalgroup'];
+        const suppressPatterns = ['buffer','timeout','transaction','failed to decrypt','received error','sessionerror','bad mac','stream errored','baileys','whatsapp','ws','closing session','Closing open session','sessionentry','_chains','registrationid','currentratchet','indexinfo','pendingprekey','ephemeralkeypair','lastremoteephemeralkey','rootkey','basekey','signal','key','ratchet','encryption','decryption','qr','scan','pairing','connection.update','creds.update','messages.upsert','group','participant','metadata','presence.update','chat.update','message.receipt.update','message.update','keystore','keypair','pubkey','privkey','<buffer','05 ','0x','signalkey','signalprotocol','sessionstate','senderkey','groupcipher','signalgroup'];
         for (const pattern of suppressPatterns) { if (message.includes(pattern)) return; }
         const timestamp = chalk.gray(`[${new Date().toLocaleTimeString()}]`);
         const cleanArgs = args.map(arg => typeof arg === 'string' ? arg.replace(/\n\s+/g, ' ') : arg);

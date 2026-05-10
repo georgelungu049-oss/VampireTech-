@@ -1,84 +1,26 @@
-import { getBotName } from '../../lib/botname.js';
-import { getOwnerName } from '../../lib/menuHelper.js';
-import fs from 'fs';
-import path from 'path';
-import { createRequire } from 'module';
-
-const require = createRequire(import.meta.url);
-let giftedBtns;
-try { giftedBtns = require('gifted-btns'); } catch {}
-
-const CONTACT_FILE = path.join(process.cwd(), 'bot_owner_contact.json');
-
-function getOwnerContact() {
-    try {
-        if (fs.existsSync(CONTACT_FILE)) {
-            const d = JSON.parse(fs.readFileSync(CONTACT_FILE, 'utf8'));
-            if (d.number) return d.number;
-        }
-    } catch {}
-    return '27687813781';
-}
-
-function saveOwnerContact(number) {
-    fs.writeFileSync(CONTACT_FILE, JSON.stringify({ number }, null, 2));
-}
-
 export default {
-    name: 'owner',
-    alias: ['creator', 'dev', 'developer', 'paxton'],
-    description: 'Show bot owner contact',
-    category: 'owner',
-
-    async execute(sock, m, args, PREFIX, extra) {
-        const jid = m.key.remoteJid;
-        const { jidManager } = extra || {};
-        const isOwner = jidManager?.isOwner(m) || false;
-
-        if (args[0]) {
-            if (!isOwner) {
-                return sock.sendMessage(jid, {
-                    text: '❌ *Owner Only Command!*'
-                }, { quoted: m });
-            }
-
-            const newNumber = args[0].replace(/\D/g, '');
-            if (newNumber.length < 7) {
-                return sock.sendMessage(jid, {
-                    text: `❌ Invalid number. Example: \`${PREFIX}owner 27687813781\``
-                }, { quoted: m });
-            }
-
-            saveOwnerContact(newNumber);
-            return sock.sendMessage(jid, {
-                text: `✅ *Owner number updated*\n\`+${newNumber}\``
-            }, { quoted: m });
+  name: 'owner',
+  description: 'Show Vampire MD owner contact info',
+  category: 'owner',
+  aliases: ['creator', 'dev', 'paxton', 'vamps'],
+  
+  async execute(sock, msg, args) {
+    const chatId = msg.key.remoteJid;
+    
+    const vcard = 'BEGIN:VCARD\nVERSION:3.0\nFN:Paxton (Vampire Tech)\nORG:Vampire Tech\nTEL;type=CELL:+27687813781\nEND:VCARD';
+    
+    await sock.sendMessage(chatId, { 
+      text: `╔══════════════════════════╗\n║   🧛 *VAMPIRE MD OWNER*   ║\n╚══════════════════════════╝\n\n👑 *Owner:* Paxton\n📞 *SA:* +27 68 781 3781 🇿🇦\n\n🩸 *Co-Owner:* Vamps\n📞 *ZW:* +263 77 669 9348 🇿🇼\n\n📧 *Email:* georgelungu049@gmail.com\n📂 *GitHub:* github.com/georgelungu049-oss\n\n📢 *Channel:* https://whatsapp.com/channel/0029Vb7Smxe89inp918Glr1O\n👥 *Group:* https://chat.whatsapp.com/DIDhRW19119EICPJpxdpTc\n\n⚡ *Powered by Vampire Tech* 🧛`
+    }, { quoted: msg });
+    
+    // Send contact card
+    try {
+      await sock.sendMessage(chatId, {
+        contacts: { 
+          displayName: 'Paxton (Vampire Tech)', 
+          contacts: [{ vcard }] 
         }
-
-        const ownerNumber = getOwnerContact();
-        const ownerJid = `${ownerNumber}@s.whatsapp.net`;
-
-        try { await sock.sendMessage(jid, { react: { text: '👑', key: m.key } }); } catch {}
-
-        const vcard =
-            'BEGIN:VCARD\n' +
-            'VERSION:3.0\n' +
-            `FN:${getOwnerName()} (Bot Owner)\n` +
-            `ORG:${getBotName()};\n` +
-            `TEL;type=CELL;type=VOICE;waid=${ownerNumber}:+${ownerNumber}\n` +
-            'END:VCARD';
-
-        await sock.sendMessage(jid, {
-            text: `👑 *${getBotName()} OWNER*\n\n📱 *+${ownerNumber}*\n📞 *SA:* +27687813781\n📞 *ZW:* +263776699348\n\n💬 https://wa.me/${ownerNumber}\n\n⚡ *Powered by Vampire Tech* 🧛`
-        }, { quoted: m });
-
-        try {
-            await sock.sendMessage(jid, {
-                contacts: { 
-                    displayName: `${getOwnerName()} (Bot Owner)`, 
-                    contacts: [{ vcard }] 
-                }
-            }, { quoted: m });
-        } catch {}
-    }
+      }, { quoted: msg });
+    } catch(e) {}
+  }
 };
