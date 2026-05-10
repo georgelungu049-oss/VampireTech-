@@ -1,431 +1,181 @@
-<div align="center">
+<p align="center">
+  <img src="https://readme-typing-svg.herokuapp.com?font=Creepster&size=55&duration=2500&pause=800&color=FF0000&center=true&vCenter=true&width=800&height=120&lines=%F0%9F%A7%9B+VAMPIRE+MD;%F0%9F%A9%B8+THE+UNDEAD+WHATSAPP+BOT;%F0%9F%94%AA+160%2B+POWERFUL+COMMANDS;%F0%9F%92%80+BUILT+BY+PAXTON+TECH;%F0%9F%8C%91+RISE+FROM+THE+DARKNESS" alt="Vampire MD" />
+</p>
 
-<img src="https://img.shields.io/badge/WOLFTECH-WhatsApp%20Bot-25D366?style=for-the-badge&logo=whatsapp&logoColor=white" alt="WOLFTECH"/>
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=venom&color=gradient&customColorList=12,15,20&height=8&section=header" />
+</p>
 
-# 🐺 WOLFTECH — WhatsApp Bot Framework
+<p align="center">
+  <img src="https://img.shields.io/badge/%F0%9F%A7%9B_VERSION-1.0.0-darkred?style=for-the-badge&labelColor=black&color=darkred&logo=github" />
+  <img src="https://img.shields.io/badge/%E2%9A%A1_NODE.JS-18+-darkred?style=for-the-badge&labelColor=black&color=darkred&logo=nodedotjs" />
+  <img src="https://img.shields.io/badge/%F0%9F%94%A5_BAILEYS-Latest-darkred?style=for-the-badge&labelColor=black&color=darkred" />
+  <img src="https://img.shields.io/badge/%F0%9F%92%80_COMMANDS-160+-darkred?style=for-the-badge&labelColor=black&color=darkred" />
+  <img src="https://img.shields.io/badge/%F0%9F%93%9C_LICENSE-MIT-darkred?style=for-the-badge&labelColor=black&color=darkred" />
+  <img src="https://img.shields.io/badge/%F0%9F%93%A1_PLATFORM-TERMUX-darkred?style=for-the-badge&labelColor=black&color=darkred&logo=android" />
+</p>
 
-**A fast, modular, open-source WhatsApp bot framework for developers.**  
-Build your own feature-rich WhatsApp bot in minutes — no experience required.
+<p align="center">
+  <a href="https://github.com/georgelungu049-oss/VampireTech-/stargazers">
+    <img src="https://img.shields.io/github/stars/georgelungu049-oss/VampireTech-?style=social&color=red&logo=github" />
+  </a>
+  <a href="https://github.com/georgelungu049-oss/VampireTech-/network/members">
+    <img src="https://img.shields.io/github/forks/georgelungu049-oss/VampireTech-?style=social&color=red&logo=github" />
+  </a>
+  <a href="https://github.com/georgelungu049-oss/VampireTech-/watchers">
+    <img src="https://img.shields.io/github/watchers/georgelungu049-oss/VampireTech-?style=social&color=red&logo=github" />
+  </a>
+  <img src="https://komarev.com/ghpvc/?username=georgelungu049-oss&repo=VampireTech-&color=darkred&style=flat-square&label=🩸+VISITORS" />
+</p>
 
-[![Node.js](https://img.shields.io/badge/Node.js-18%2B-339933?style=flat-square&logo=node.js&logoColor=white)](https://nodejs.org)
-[![Baileys](https://img.shields.io/badge/Powered%20by-Baileys-128C7E?style=flat-square)](https://github.com/WhiskeySockets/Baileys)
-[![License](https://img.shields.io/badge/License-MIT-blue?style=flat-square)](LICENSE)
-[![Open Source](https://img.shields.io/badge/Open%20Source-❤️-red?style=flat-square)](https://github.com)
-[![PRs Welcome](https://img.shields.io/badge/PRs-Welcome-brightgreen?style=flat-square)](CONTRIBUTING.md)
+<br>
 
-[Features](#-features) · [Quick Start](#-quick-start) · [Commands](#-command-system) · [Contributing](#-contributing) · [Docs](#-documentation)
+> 🧛 *"The night is darkest just before the dawn. And I promise you — the dawn is coming."*
+>
+> *"In the shadows we code. In the darkness we deploy. We are Vampire MD."*
+>
+> — **Paxton, Founder of Vampire Tech**
 
-</div>
+<br>
 
-
-<img src="https://i.ibb.co/N6fVpZtL/upload-1778355377958-34f272b3-jpg.jpg" alt="WOLFTECH Banner" width="100%"/>
----
-
-## 🌍 What Is 🐺 WOLFTECH — WhatsApp Bot Framework?
-
-**🐺 WOLFTECH — WhatsApp Bot Framework** is a free, open-source WhatsApp bot framework built on top of [Baileys](https://github.com/WhiskeySockets/Baileys) — the most popular unofficial WhatsApp Web API library for Node.js. It gives developers a clean, well-structured starting point to build their own WhatsApp bots without dealing with the complexity of raw WebSocket connections, session management, or message parsing.
-
-Whether you want to build a **group management bot**, a **customer support bot**, an **automation tool**, or just learn how WhatsApp bots work under the hood — WOLFTECH gives you the foundation.
-
-> 🎯 **Built for developers by developers.** Fork it, extend it, make it yours.
-
----
-
-## ✨ Features
-
-- 🔌 **Plug-and-play command system** — drop a `.js` file into the `commands/` folder and it's live
-- 📁 **Auto command loader** — scans all subfolders and registers commands automatically at startup
-- 🔐 **Pairing code & Session ID login** — no QR code scanning needed
-- 👑 **Owner/JID management** — smart JID resolution including `@lid` (linked devices)
-- 🛡️ **Rate limit protection** — built-in cooldown system to prevent spam abuse
-- 👥 **Group event detection** — detects new members joining groups in real time
-- 👁️ **Status watcher** — auto-view and auto-react to WhatsApp statuses
-- 🔄 **Auto-reconnect** — exponential backoff reconnection on disconnect
-- 🌐 **Multi-platform** — runs on Local/VPS, Heroku, Render, Replit, Railway, and more
-- 📋 **Live message logging** — colour-coded terminal logs for every incoming DM and group message
-- 🤖 **Public/Private/Group-only modes** — control who can use your bot
-- 💬 **Prefixed & prefixless modes** — supports both `.command` and raw `command` styles
-- 🧩 **Category-based commands** — organise commands into folders by category automatically
+<p align="center">
+  <img src="https://capsule-render.vercel.app/api?type=waving&color=gradient&customColorList=12,15,20&height=5&section=header" />
+</p>
 
 ---
 
-## 📦 Tech Stack
+## 🧛 WHAT IS VAMPIRE MD?
 
-| Layer | Technology |
-|---|---|
-| Runtime | Node.js 18+ (ESM) |
-| WhatsApp API | [@whiskeysockets/baileys](https://github.com/WhiskeySockets/Baileys) |
-| Terminal UI | [chalk](https://github.com/chalk/chalk) |
-| Environment | [dotenv](https://github.com/motdotla/dotenv) |
-| Module system | ES Modules (`import`/`export`) |
+
+**Vampire MD** is not just a bot — it's a **complete WhatsApp automation platform**. Built on the legendary **Baileys** library, it features 160+ commands across 6 categories, automatic group management, status reactivity, media tools, fun games, and complete owner control.
+
+Whether you're managing a community, automating tasks, or just having fun — **Vampire MD delivers.**
 
 ---
 
-## 🚀 Quick Start
+## 💀 TABLE OF CONTENTS
 
-### Prerequisites
+- [Features](#-features)
+- [Quick Start](#-quick-start)
+- [Bot Setup](#-bot-setup)
+- [Commands List](#-commands-list)
+- [Owners](#-the-coven)
+- [Community](#-join-the-dark-side)
+- [Deployment](#-deployment)
+- [FAQ](#-faq)
+- [Credits](#-credits)
 
-- [Node.js](https://nodejs.org) **v18 or higher**
-- A WhatsApp account (personal or dedicated bot number)
-- Git
+---
 
-### 1. Clone the repository
+## 💀 FEATURES
+
+<table align="center">
+<tr>
+<td align="center" width="33%">
+  <h3>🤖 AUTOMATION</h3>
+  <p>15 Powerful Commands</p>
+  <hr>
+  <code>autobio</code> <code>autoreact</code><br>
+  <code>autoview</code> <code>autotyping</code><br>
+  <code>autorecording</code> <code>autoread</code><br>
+  <code>autoreply</code> <code>autodownload</code><br>
+  <code>autoblock</code> <code>autoclear</code><br>
+  <code>autoforward</code> <code>automute</code><br>
+  <code>autosticker</code> <code>autoonline</code><br>
+  <code>autoreactmsg</code>
+</td>
+<td align="center" width="33%">
+  <h3>👥 GROUP</h3>
+  <p>16 Power Commands</p>
+  <hr>
+  <code>promote</code> <code>demote</code><br>
+  <code>kick</code> <code>ban</code> <code>unban</code><br>
+  <code>mute</code> <code>unmute</code><br>
+  <code>tagall</code> <code>hidetag</code><br>
+  <code>groupinfo</code> <code>welcome</code><br>
+  <code>goodbye</code> <code>add</code><br>
+  <code>revoke</code> <code>antidemote</code><br>
+  <code>togstatus</code>
+</td>
+<td align="center" width="33%">
+  <h3>👑 OWNER</h3>
+  <p>16 Control Commands</p>
+  <hr>
+  <code>block</code> <code>unblock</code><br>
+  <code>broadcast</code> <code>join</code><br>
+  <code>leave</code> <code>clear</code><br>
+  <code>restart</code> <code>shutdown</code><br>
+  <code>setpp</code> <code>setprefix</code><br>
+  <code>setname</code> <code>getjid</code><br>
+  <code>backup</code> <code>update</code><br>
+  <code>repo</code> <code>status</code>
+</td>
+</tr>
+<tr>
+<td align="center" width="33%">
+  <h3>🔧 UTILITY</h3>
+  <p>20 Daily Tools</p>
+  <hr>
+  <code>ping</code> <code>ping2</code> <code>ping3</code><br>
+  <code>speedtest</code> <code>sticker</code><br>
+  <code>gifsticker</code> <code>vv</code><br>
+  <code>alive</code> <code>botstatus</code><br>
+  <code>calc</code> <code>weather</code> <code>wiki</code><br>
+  <code>quote</code> <code>fact</code> <code>joke</code><br>
+  <code>flip</code> <code>roll</code> <code>pick</code><br>
+  <code>couplepp</code> <code>emojimix</code>
+</td>
+<td align="center" width="33%">
+  <h3>😄 FUN</h3>
+  <p>15 Entertainment</p>
+  <hr>
+  <code>marry</code> <code>divorce</code><br>
+  <code>kiss</code> <code>hug</code> <code>slap</code><br>
+  <code>lovecalc</code> <code>ship</code><br>
+  <code>truthordare</code> <code>roast</code><br>
+  <code>compliment</code> <code>ppsize</code><br>
+  <code>gaytest</code> <code>iqtest</code><br>
+  <code>simprate</code> <code>stonks</code>
+</td>
+<td align="center" width="33%">
+  <h3>🛠️ TOOLS</h3>
+  <p>15 Handy Tools</p>
+  <hr>
+  <code>qr</code> <code>shorten</code><br>
+  <code>password</code> <code>binary</code><br>
+  <code>base64</code> <code>reverse</code><br>
+  <code>count</code> <code>uppercase</code><br>
+  <code>lowercase</code> <code>randomnum</code><br>
+  <code>timestamp</code> <code>colorcode</code><br>
+  <code>translate</code> <code>getjid</code><br>
+  <code>weather</code>
+</td>
+</tr>
+</table>
+
+---
+
+## ⚡ QUICK START
+
+### 📱 TERMUX (Android)
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/wolftech-bot.git
-cd wolftech-bot
-```
+# Step 1: Update packages
+apt update && apt upgrade -y
 
-### 2. Install dependencies
+# Step 2: Install requirements
+apt install git nodejs -y
 
-```bash
+# Step 3: Clone the repository
+git clone https://github.com/georgelungu049-oss/VampireTech-.git
+
+# Step 4: Enter the directory
+cd VampireTech-
+
+# Step 5: Install dependencies
 npm install
-```
 
-### 3. Configure environment
+# Step 6: Start the bot
+npm start
 
-```bash
-cp .env.example .env
-```
 
-Edit `.env` with your settings:
-
-```env
-BOT_NAME=WOLFTECH
-PREFIX=.
-```
-
-### 4. Start the bot
-
-```bash
-node index.js
-```
-
-On first run you will see the login menu:
-
-```
-🐺 WOLFTECH v1.1.3 - LOGIN SYSTEM
-1) Pairing Code Login (Recommended)
-2) Clean Session & Start Fresh
-3) Use Session ID from Environment
-```
-
-Choose **option 1**, enter your phone number (with country code, no `+`), then enter the pairing code shown in your WhatsApp under **Settings → Linked Devices → Link a Device**.
-
----
-
-## 🗂️ Project Structure
-
-```
-wolftech-bot/
-├── index.js                  # Main entry point — bot core
-├── .env                      # Environment variables
-├── .env.example              # Environment variable template
-├── owner.json                # Auto-generated — stores owner JID
-├── prefix_config.json        # Auto-generated — stores current prefix
-│
-├── commands/                 # 📁 All commands live here
-│   ├── general/              # General-purpose commands
-│   │   ├── ping.js
-│   │   └── help.js
-│   ├── group/                # Group management commands
-│   │   ├── ban.js
-│   │   ├── add.js
-│   │   └── antidemote.js
-│   ├── automation/           # Automation commands
-│   │   ├── autoreactstatus.js
-│   │   └── autoviewstatus.js
-│   └── utility/              # Utility commands
-│       └── getjid.js
-│
-├── lib/                      # Shared helpers/utilities
-│   └── menuHelper.js
-│
-├── data/                     # Auto-generated runtime data
-│   ├── welcome_data.json
-│   └── member_detection.json
-│
-└── session/                  # Auto-generated — Baileys session files
-```
-
----
-
-## ⚙️ Command System
-
-This is the heart of WOLFTECH. The entire command system is designed so that **adding a new command is as simple as creating a new file**.
-
-### How command loading works
-
-When the bot starts, `loadCommandsFromFolder('./commands')` is called. It:
-
-1. Recursively scans every subfolder inside `commands/`
-2. Imports every `.js` file it finds (skipping `.test.js` and `.disabled.js` files)
-3. Reads the `name`, `alias`, and `category` from each exported module
-4. Registers the command into a global `Map` so it can be looked up in milliseconds
-5. Groups commands by their folder name (subfolder = category) for the `help` command
-
-This means **you never have to register a command manually**. Just create the file.
-
-### Command file structure
-
-Every command is a single `.js` file with a default export:
-
-```js
-// commands/general/ping.js
-
-export default {
-  name: 'ping',                    // command name (how users call it)
-  description: 'Check bot speed',  // shown in help menu
-  category: 'general',             // auto-set from folder name
-  aliases: ['p', 'test'],          // alternative names users can type
-  ownerOnly: false,                 // set true to restrict to bot owner
-
-  async execute(sock, msg, args, prefix, context) {
-    const chatId = msg.key.remoteJid;
-
-    await sock.sendMessage(chatId, {
-      text: `🏓 Pong! Bot is alive.`
-    }, { quoted: msg });
-  }
-};
-```
-
-### The `context` object
-
-Every command receives a `context` object as the 5th argument, giving you access to the entire bot state without importing anything:
-
-```js
-async execute(sock, msg, args, prefix, context) {
-  const {
-    OWNER_NUMBER,      // owner's phone number
-    OWNER_JID,         // owner's WhatsApp JID
-    BOT_NAME,          // bot name from .env
-    VERSION,           // bot version string
-    isOwner,           // function — call isOwner() → true/false
-    jidManager,        // JID resolution & owner management class
-    store,             // in-memory message store
-    statusDetector,    // status watcher instance
-    updatePrefix,      // function to change the prefix live
-    getCurrentPrefix,  // function to get the current prefix
-    rateLimiter,       // rate limit protection instance
-    memberDetector,    // group member detection instance
-    isPrefixless,      // boolean — true if bot is in prefixless mode
-  } = context;
-}
-```
-
-### Creating a category
-
-Just create a new subfolder inside `commands/`. It becomes a category automatically:
-
-```
-commands/
-└── myfeature/
-    ├── mycommand.js      # category = 'myfeature'
-    └── anothercommand.js
-```
-
-### Restricting a command to the owner
-
-```js
-export default {
-  name: 'restart',
-  ownerOnly: true,   // ← non-owners get a rejection message automatically
-  async execute(sock, msg, args, prefix, context) {
-    // only the bot owner reaches this code
-  }
-};
-```
-
-### Disabling a command without deleting it
-
-Rename the file to include `.disabled.`:
-
-```
-commands/general/ping.disabled.js   ← skipped by the loader
-```
-
----
-
-## 🔐 Authentication
-
-WOLFTECH supports two login methods:
-
-### Method 1 — Pairing Code (Recommended)
-
-No QR code. Enter your phone number and WhatsApp gives you an 8-digit code to type in the app under **Settings → Linked Devices**.
-
-### Method 2 — Session ID
-
-If you've previously generated a session, export it as a base64 string or `WOLF-BOT:...` prefixed string and set it in your environment:
-
-```env
-SESSION_ID=WOLF-BOT:eyJub2lzZUtleS...
-```
-
-The bot will authenticate automatically without any prompts — perfect for cloud deployments.
-
----
-
-## 🤖 JID Resolution
-
-WhatsApp JIDs (Jabber IDs) are the unique identifiers for every user, group, and channel. WOLFTECH handles all JID types correctly:
-
-| JID Type | Example | Meaning |
-|---|---|---|
-| `@s.whatsapp.net` | `254712345678@s.whatsapp.net` | Regular user |
-| `@g.us` | `120363xxxxxx@g.us` | Group chat |
-| `@lid` | `12345:67@lid` | Linked/companion device |
-| `@newsletter` | `xxx@newsletter` | WhatsApp Channel |
-
-`@lid` JIDs are companion device identifiers that don't contain a phone number. WOLFTECH resolves them back to real phone JIDs using a 4-step fallback chain:
-
-1. Group participant metadata (has `phoneNumber` on some builds)
-2. Baileys signal repository LID→PN mapping
-3. Global `lidPhoneCache` if populated
-4. `sock.store.contacts` lookup
-
----
-
-## 🖥️ Terminal Logging
-
-Every incoming message is printed in a structured, colour-coded log:
-
-**DM (green):**
-```
-╭─────────────────────────────────────
-│ 🐺 WOLFTECH LOG #12
-├─────────────────────────────────────
-│ 👤 Name   : Silent Wolf
-│ ☎️  Number : +254785471416
-│ 🆔 JID    : 254785471416@s.whatsapp.net
-│ 💬 Msg    : .menu
-│ 🕒 Time   : 18:42:11
-│ 📩 Type   : DM
-╰─────────────────────────────────────
-```
-
-**Group message (green):**
-```
-╭──────────────────────────────────────────
-│ 🐺 WOLFTECH LOG #13
-├──────────────────────────────────────────
-│ 👥 Group  : Wolf Empire
-│ 👤 Sender : Silent Wolf
-│ ☎️  Number : +254785471416
-│ 🆔 JID    : 120363xxxxxx@g.us
-│ 💬 Msg    : Hello everyone
-│ 🕒 Time   : 18:44:03
-│ 📩 Type   : GROUP
-╰──────────────────────────────────────────
-```
-
----
-
-## 🌐 Deployment
-
-### Local / VPS
-
-```bash
-# Install PM2 for process management
-npm install -g pm2
-
-# Start with PM2
-pm2 start index.js --name wolftech
-
-# Auto-restart on reboot
-pm2 startup
-pm2 save
-```
-
-### Render / Railway / Heroku
-
-Set these environment variables on your platform:
-
-```env
-BOT_NAME=WOLFTECH
-PREFIX=.
-SESSION_ID=WOLF-BOT:your_session_string_here
-```
-
-The platform is auto-detected and shown in the `.connect` command output.
-
----
-
-## 🛡️ Bot Modes
-
-Control who can use your bot at runtime:
-
-| Mode | Behaviour |
-|---|---|
-| `public` | Everyone can use commands |
-| `private` | Only the owner can use commands |
-| `group-only` | Only works in groups |
-| `maintenance` | Only `ping`, `help`, `status`, `uptime` work |
-| `silent` | No responses at all (stealth mode) |
-
----
-
-## 🤝 Contributing
-
-Contributions are welcome and appreciated. Here's how to get started:
-
-1. **Fork** the repository
-2. **Create** a feature branch: `git checkout -b feature/my-new-command`
-3. **Write** your command in the appropriate `commands/` subfolder
-4. **Test** it locally
-5. **Commit** with a clear message: `git commit -m 'feat: add weather command'`
-6. **Push** and open a **Pull Request**
-
-### Contribution ideas
-
-- New commands (games, utilities, group tools, AI integrations)
-- Bug fixes and stability improvements
-- Platform-specific deployment guides
-- Translations / localisation
-- Unit tests
-
-Please read [CONTRIBUTING.md](CONTRIBUTING.md) before submitting.
-
----
-
-## ❓ FAQ
-
-**Q: Is this against WhatsApp's Terms of Service?**  
-A: Using unofficial APIs carries inherent risk. Use a dedicated bot number, not your personal account. WOLFTECH is provided for educational and development purposes.
-
-**Q: My session keeps disconnecting. What do I do?**  
-A: Try option 2 (Clean Session) from the login menu, then re-pair. Persistent disconnects are usually caused by running the same session on multiple devices simultaneously.
-
-**Q: Can I add AI / ChatGPT to my bot?**  
-A: Yes — create a command that calls the OpenAI API (or any other) and sends the response back. The command system is completely flexible.
-
-**Q: How do I run multiple bots?**  
-A: Clone the repo into separate folders, give each its own `session/` directory and `.env` file, and run them as separate processes.
-
-**Q: Does it work on Windows?**  
-A: Yes. Node.js and all dependencies are cross-platform.
-
----
-
-## 📄 License
-
-This project is licensed under the **MIT License** — see [LICENSE](LICENSE) for details.
-
-You are free to use, modify, and distribute this code for personal or commercial projects. Attribution is appreciated but not required.
-
----
-
-## ⚠️ Disclaimer
-
-WOLFTECH is an independent open-source project. It is **not affiliated with, endorsed by, or connected to WhatsApp LLC or Meta Platforms Inc.** in any way. Use responsibly and at your own risk.
-
----
-
-<div align="center">
-
-Made with ❤️ for the developer community
-
-⭐ **Star this repo if it helped you** · 🍴 **Fork it to make it yours** · 🐛 **Open an issue if something breaks**
-
-</div>
