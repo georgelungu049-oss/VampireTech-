@@ -1,6 +1,6 @@
 // ============================================================
-//  WOLFTECH — OPEN SOURCE EDITION
-//  🧛 WOLFTECH — WhatsApp Bot Framework
+//  Vampire MD — OPEN SOURCE EDITION
+//  🧛 Vampire MD — WhatsApp Bot Framework
 // ============================================================
 
 const originalConsoleMethods = {
@@ -88,7 +88,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
 
 const SESSION_DIR = './session';
-const BOT_NAME = process.env.BOT_NAME || 'WOLFTECH';
+const BOT_NAME = process.env.BOT_NAME || 'Vampire MD';
 const VERSION = '1.0.0';
 const DEFAULT_PREFIX = process.env.PREFIX || '.';
 const OWNER_FILE = './owner.json';
@@ -480,7 +480,7 @@ class AutoGroupJoinSystem {
     }
     async sendWelcomeMessage(sock, userJid) {
         if (!SEND_WELCOME_MESSAGE) return;
-        try { await sock.sendMessage(userJid, { text: `🎉 *WELCOME TO WOLFTECH!*\n\n🧛‍♂️ *VAMPIRE TECH* 🖤
+        try { await sock.sendMessage(userJid, { text: `🎉 *WELCOME TO Vampire MD!*\n\n🧛‍♂️ *VAMPIRE TECH* 🖤
 BORN IN DARKNESS. BUILT TO DOMINATE.
 
 Thank you for connecting! 🤖\nYou're being automatically invited to our community group...\nPlease wait... ⏳` }); } catch (error) { UltraCleanLogger.error(`❌ Could not send welcome message: ${error.message}`); }
@@ -795,12 +795,12 @@ async function loadCommandsFromFolder(folderPath, category = 'general') {
     } catch {}
 }
 
-function parseWOLFTECHSession(sessionString) {
+function parseVampireMDSession(sessionString) {
     try {
         let cleaned = sessionString.trim().replace(/^["']|["']$/g, '');
-        if (cleaned.startsWith('WOLF-BOT:')) {
+        if (cleaned.startsWith('VAMPIRE-MD:')) {
             const base64Part = cleaned.substring(9).trim();
-            if (!base64Part) throw new Error('No data after WOLF-BOT:');
+            if (!base64Part) throw new Error('No data after VAMPIRE-MD:');
             try { return JSON.parse(Buffer.from(base64Part, 'base64').toString('utf8')); } catch { return JSON.parse(base64Part); }
         }
         try { return JSON.parse(Buffer.from(cleaned, 'base64').toString('utf8')); } catch { return JSON.parse(cleaned); }
@@ -809,7 +809,7 @@ function parseWOLFTECHSession(sessionString) {
 
 async function authenticateWithSessionId(sessionId) {
     try {
-        const sessionData = parseWOLFTECHSession(sessionId);
+        const sessionData = parseVampireMDSession(sessionId);
         if (!sessionData) throw new Error('Could not parse session data');
         if (!fs.existsSync(SESSION_DIR)) fs.mkdirSync(SESSION_DIR, { recursive: true });
         fs.writeFileSync(path.join(SESSION_DIR, 'creds.json'), JSON.stringify(sessionData, null, 2));
@@ -821,7 +821,7 @@ async function authenticateWithSessionId(sessionId) {
 class LoginManager {
     constructor() { this.rl = readline.createInterface({ input: process.stdin, output: process.stdout }); }
     async selectMode() {
-        console.log(chalk.yellow('\n🧛 WOLFTECH v' + VERSION + ' - LOGIN SYSTEM'));
+        console.log(chalk.yellow('\n🧛 Vampire MD v' + VERSION + ' - LOGIN SYSTEM'));
         console.log(chalk.blue('1) Pairing Code Login (Recommended)'));
         console.log(chalk.blue('2) Clean Session & Start Fresh'));
         console.log(chalk.magenta('3) Use Session ID from Environment'));
@@ -837,7 +837,7 @@ class LoginManager {
         let sessionId = process.env.SESSION_ID;
         if (!sessionId || sessionId.trim() === '') {
             const input = await this.ask('\nWould you like to:\n1) Paste Session ID now\n2) Go back to main menu\nChoice (1-2): ');
-            if (input.trim() === '1') { sessionId = await this.ask('Paste your Session ID (WOLF-BOT:... or base64): '); if (!sessionId || sessionId.trim() === '') return await this.selectMode(); }
+            if (input.trim() === '1') { sessionId = await this.ask('Paste your Session ID (VAMPIRE-MD:... or base64): '); if (!sessionId || sessionId.trim() === '') return await this.selectMode(); }
             else return await this.selectMode();
         }
         try { await authenticateWithSessionId(sessionId); return { mode: 'session', sessionId: sessionId.trim() }; }
@@ -1207,7 +1207,7 @@ async function handleDefaultCommands(commandName, sock, msg, args, currentPrefix
     const isOwnerUser = jidManager.isOwner(msg);
     try {
         switch (commandName) {
-            case 'ping': await sock.sendMessage(chatId, { text: `🧛 *WOLFTECH v${VERSION}* — Pong! ✅\n⏱️ Uptime: ${Math.round(process.uptime())}s` }, { quoted: msg }); break;
+            case 'ping': await sock.sendMessage(chatId, { text: `🧛 *Vampire MD v${VERSION}* — Pong! ✅\n⏱️ Uptime: ${Math.round(process.uptime())}s` }, { quoted: msg }); break;
             case 'uptime': { const uptime = process.uptime(); await sock.sendMessage(chatId, { text: `⏰ *Uptime:* ${Math.floor(uptime / 3600)}h ${Math.floor((uptime % 3600) / 60)}m ${Math.floor(uptime % 60)}s\n💾 *Memory:* ${Math.round(process.memoryUsage().rss / 1024 / 1024)}MB` }, { quoted: msg }); break; }
             case 'help': {
                 let helpText = `┌『 *🧛 VAMPIRE MD* 』\n`;
