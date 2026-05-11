@@ -3,15 +3,15 @@ services:
     name: vampire-md
     env: node
     buildCommand: npm install
-    startCommand: npm start
+    startCommand: node index.js
     envVars:
       - key: NODE_VERSION
         value: 18.x
-      - key: NODE_ENV
-        value: production
       - key: AUTO_LOGIN
         value: "true"
       - key: BOT_NAME
         value: Vampire MD
       - key: PREFIX
         value: "."
+      - key: SESSION_ID
+        value: "your-session-id-here"
