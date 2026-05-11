@@ -23,7 +23,7 @@ export default {
                   `📥 *Download:* ${downloadSpeed} Mbps\n` +
                   `📡 *Latency:* ${Date.now() - start}ms\n` +
                   `🔗 *Server:* Cloudflare\n` +
-                  `\n⚡ *Powered by Vampire Tech* 🧛`
+                  `\n> *Powered by Vampire Tech*`
         }, { quoted: msg });
     }
 };

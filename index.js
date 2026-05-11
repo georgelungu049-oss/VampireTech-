@@ -1225,7 +1225,7 @@ async function handleDefaultCommands(commandName, sock, msg, args, currentPrefix
                 helpText += `│ 📡 *Status*   : 🟢 ONLINE\n\n`;
                 for (const category of commandCategories.keys()) { const cmdList = commandCategories.get(category); helpText += `📂 *${category.toUpperCase()}*\n${cmdList.map(c => `▸ ${currentPrefix}${c}`).join('\n')}\n\n`; }
                 helpText += `\n> Powered by VampireTech🧛`;
-                await sock.sendMessage(chatId, { text: helpText }, { quoted: msg }); break;
+                await sock.sendMessage(chatId, { text: helpText, mentions: [msg.key.participant || msg.key.remoteJid] }, { quoted: msg }); break;
             }
             case 'statusstats': { if (!statusDetector) { await sock.sendMessage(chatId, { text: '❌ Status Detector not initialized' }, { quoted: msg }); break; } const stats = statusDetector.getStats(); await sock.sendMessage(chatId, { text: `👁️ *STATUS DETECTOR STATS*\n\n📊 Total Detected: ${stats.totalDetected}\n🕒 Last Detection: ${stats.lastDetection}\n🔧 Detection Enabled: ${stats.detectionEnabled ? '✅' : '❌'}` }, { quoted: msg }); break; }
             case 'prefixinfo': { const currentP = getCurrentPrefix(); await sock.sendMessage(chatId, { text: `💬 *PREFIX INFO*\n\nCurrent Prefix: ${isPrefixless ? 'none' : `"${currentP}"`}\nPrefixless Mode: ${isPrefixless ? '✅' : '❌'}` }, { quoted: msg }); break; }

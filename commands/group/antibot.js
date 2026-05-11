@@ -10,7 +10,7 @@ export default {
     
     const action = args[0]?.toLowerCase() || 'on';
     await sock.sendMessage(chatId, { 
-      text: action === 'on' ? '🤖 Anti-Bot ENABLED! Other bots will be removed.\n\n⚡ *Powered by Vampire Tech* 🧛' : '🤖 Anti-Bot DISABLED!\n\n⚡ *Powered by Vampire Tech* 🧛' 
+      text: action === 'on' ? '🤖 Anti-Bot ENABLED! Other bots will be removed.\n\n> *Powered by Vampire Tech*' : '🤖 Anti-Bot DISABLED!\n\n> *Powered by Vampire Tech*' 
     }, { quoted: msg });
   }
 };

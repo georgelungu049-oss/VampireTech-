@@ -10,7 +10,7 @@ export default {
     }
     try {
       await sock.groupSettingUpdate(sender, 'announcement');
-      await sock.sendMessage(sender, { text: '🔇 *Group muted!* Only admins can send messages.\n\n⚡ *Powered by Vampire Tech* 🧛' }, { quoted: msg });
+      await sock.sendMessage(sender, { text: '🔇 *Group muted!* Only admins can send messages.\n\n> *Powered by Vampire Tech*' }, { quoted: msg });
     } catch (error) {
       await sock.sendMessage(sender, { text: '❌ Failed to mute! I need admin permissions.' }, { quoted: msg });
     }

@@ -14,6 +14,6 @@ export default {
             '🍷 Why don\'t vampires drink wine? Because it gives them bat breath!'
         ];
         const joke = jokes[Math.floor(Math.random() * jokes.length)];
-        await sock.sendMessage(chatId, { text: `😄 *Joke Time!*\n\n${joke}\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+        await sock.sendMessage(chatId, { text: `😄 *Joke Time!*\n\n${joke}\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
     }
 };

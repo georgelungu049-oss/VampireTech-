@@ -30,7 +30,7 @@ export default {
                   `📥 *Speed (100KB):* ${speed2} Mbps\n` +
                   `📡 *Latency:* ${end - start}ms\n` +
                   `⏱️ *Total Time:* ${((end - start) / 1000).toFixed(2)}s\n\n` +
-                  `⚡ *Powered by Vampire Tech* 🧛`,
+                  `> *Powered by Vampire Tech*`,
             edit: sent.key 
         });
     }

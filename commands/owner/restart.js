@@ -6,7 +6,7 @@ export default {
     ownerOnly: true,
     async execute(sock, msg, args) {
         const chatId = msg.key.remoteJid;
-        await sock.sendMessage(chatId, { text: '🔄 *Restarting Vampire MD...*\n\n⚡ *Powered by Vampire Tech* 🧛' }, { quoted: msg });
+        await sock.sendMessage(chatId, { text: '🔄 *Restarting Vampire MD...*\n\n> *Powered by Vampire Tech*' }, { quoted: msg });
         process.exit(0);
     }
 };

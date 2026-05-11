@@ -12,7 +12,7 @@ export default {
         const mem = (process.memoryUsage().heapUsed / 1024 / 1024).toFixed(2);
         
         await sock.sendMessage(chatId, { 
-            text: `📊 *Vampire MD Status*\n\n⏰ *Uptime:* ${h}h ${m}m ${s}s\n💾 *Memory:* ${mem} MB\n📡 *Status:* Online\n🧛 *Bot:* Vampire MD\n👑 *Owner:* Paxton\n\n⚡ *Powered by Vampire Tech* 🧛`
+            text: `📊 *Vampire MD Status*\n\n⏰ *Uptime:* ${h}h ${m}m ${s}s\n💾 *Memory:* ${mem} MB\n📡 *Status:* Online\n🧛 *Bot:* Vampire MD\n👑 *Owner:* Paxton\n\n> *Powered by Vampire Tech*`
         }, { quoted: msg });
     }
 };

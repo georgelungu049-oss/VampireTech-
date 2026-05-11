@@ -11,7 +11,7 @@ export default {
         const action = args[0]?.toLowerCase();
         if (!action) {
             return sock.sendMessage(chatId, { 
-                text: `🎉 *Welcome System*\n\n${PREFIX}welcome on - Enable\n${PREFIX}welcome off - Disable\n${PREFIX}welcome set <msg> - Custom message\n\n⚡ *Powered by Vampire Tech* 🧛`
+                text: `🎉 *Welcome System*\n\n${PREFIX}welcome on - Enable\n${PREFIX}welcome off - Disable\n${PREFIX}welcome set <msg> - Custom message\n\n> *Powered by Vampire Tech*`
             }, { quoted: msg });
         }
         if (action === 'on') return sock.sendMessage(chatId, { text: '✅ Welcome messages ENABLED!' }, { quoted: msg });

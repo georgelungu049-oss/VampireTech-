@@ -9,7 +9,7 @@ export default {
         
         if (!action) {
             return sock.sendMessage(chatId, { 
-                text: `👁️ *Auto View Status*\n\n${PREFIX}autoview on - Enable\n${PREFIX}autoview off - Disable\n${PREFIX}autoview status - Check status\n\n⚡ *Powered by Vampire Tech* 🧛` 
+                text: `👁️ *Auto View Status*\n\n${PREFIX}autoview on - Enable\n${PREFIX}autoview off - Disable\n${PREFIX}autoview status - Check status\n\n> *Powered by Vampire Tech*` 
             }, { quoted: msg });
         }
         

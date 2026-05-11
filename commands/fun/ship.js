@@ -13,7 +13,7 @@ export default {
         const shipName = name1.replace('@','').substring(0,3) + name2.replace('@','').substring(0,3);
         
         await sock.sendMessage(chatId, { 
-            text: `🚢 *SHIP ALERT!*\n\n${name1} 💕 ${name2}\n\n💘 Ship Name: *${shipName}*\n💯 Compatibility: ${percent}%\n\n⚡ *Powered by Vampire Tech* 🧛`,
+            text: `🚢 *SHIP ALERT!*\n\n${name1} 💕 ${name2}\n\n💘 Ship Name: *${shipName}*\n💯 Compatibility: ${percent}%\n\n> *Powered by Vampire Tech*`,
             mentions: mentioned || []
         }, { quoted: msg });
     }

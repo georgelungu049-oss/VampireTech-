@@ -1,0 +1,1 @@
+export default { name: 'repo', description: 'GitHub repository', category: 'paxton', aliases: ['github','source'], async execute(sock, msg, args) { const chatId=msg.key.remoteJid; await sock.sendMessage(chatId,{text:`📂 *VAMPIRE MD REPO*\n\n🔗 https://github.com/georgelungu049-oss/VampireTech-\n\n⭐ Star & Fork!\n\n> *Powered by Vampire Tech*`},{quoted:msg}); } };

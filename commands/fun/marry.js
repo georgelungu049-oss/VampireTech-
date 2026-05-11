@@ -16,7 +16,7 @@ export default {
         else result = `💔 *${name}* rejected! Only ${love}% love 😢`;
         
         await sock.sendMessage(chatId, { 
-            text: `${result}\n\n⚡ *Powered by Vampire Tech* 🧛`,
+            text: `${result}\n\n> *Powered by Vampire Tech*`,
             mentions: target ? [target] : []
         }, { quoted: msg });
     }

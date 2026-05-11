@@ -9,7 +9,7 @@ export default {
         
         try {
             await sock.updateProfileStatus(bio);
-            await sock.sendMessage(chatId, { text: `✅ *Bio Updated!*\n\n📝 "${bio}"\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+            await sock.sendMessage(chatId, { text: `✅ *Bio Updated!*\n\n📝 "${bio}"\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
         } catch (e) {
             await sock.sendMessage(chatId, { text: '❌ Failed to update bio!' }, { quoted: msg });
         }

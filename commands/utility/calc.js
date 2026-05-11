@@ -11,7 +11,7 @@ export default {
         }
         try {
             const result = eval(expr.replace(/[^0-9+\-*/().%\s]/g, ''));
-            await sock.sendMessage(chatId, { text: `🧮 *Calculator*\n\n${expr} = *${result}*\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+            await sock.sendMessage(chatId, { text: `🧮 *Calculator*\n\n${expr} = *${result}*\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
         } catch (e) {
             await sock.sendMessage(chatId, { text: '❌ Invalid expression!' }, { quoted: msg });
         }

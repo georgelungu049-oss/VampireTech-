@@ -10,7 +10,7 @@ export default {
         const name = target ? `@${target.split('@')[0]}` : 'your partner';
         
         await sock.sendMessage(chatId, { 
-            text: `💔 *Divorce finalized!*\nYou are now separated from ${name} 📝\n\n⚡ *Powered by Vampire Tech* 🧛`,
+            text: `💔 *Divorce finalized!*\nYou are now separated from ${name} 📝\n\n> *Powered by Vampire Tech*`,
             mentions: target ? [target] : []
         }, { quoted: msg });
     }

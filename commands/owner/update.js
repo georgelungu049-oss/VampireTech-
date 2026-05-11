@@ -19,17 +19,17 @@ export default {
             
             if (result.includes('Already up to date')) {
                 await sock.sendMessage(chatId, { 
-                    text: `✅ *Vampire MD is up to date!*\n\n📦 Version: 1.0.0\n🧛 No updates available.\n\n⚡ *Powered by Vampire Tech* 🧛` 
+                    text: `✅ *Vampire MD is up to date!*\n\n📦 Version: 1.0.0\n🧛 No updates available.\n\n> *Powered by Vampire Tech*` 
                 }, { quoted: msg });
             } else {
                 await sock.sendMessage(chatId, { 
-                    text: `✅ *Update successful!*\n\n📥 Changes pulled:\n\`\`\`${result.substring(0, 300)}\`\`\`\n\n🔄 Restarting bot...\n\n⚡ *Powered by Vampire Tech* 🧛` 
+                    text: `✅ *Update successful!*\n\n📥 Changes pulled:\n\`\`\`${result.substring(0, 300)}\`\`\`\n\n🔄 Restarting bot...\n\n> *Powered by Vampire Tech*` 
                 }, { quoted: msg });
                 process.exit(0);
             }
         } catch (e) {
             await sock.sendMessage(chatId, { 
-                text: `❌ *Update failed!*\n\n${e.message}\n\n⚡ *Powered by Vampire Tech* 🧛` 
+                text: `❌ *Update failed!*\n\n${e.message}\n\n> *Powered by Vampire Tech*` 
             }, { quoted: msg });
         }
     }

@@ -8,7 +8,7 @@ export default {
     const chatId = msg.key.remoteJid;
     const mode = args[0]?.toLowerCase() || 'public';
     const modes = ['public', 'private', 'silent', 'group-only', 'maintenance'];
-    if (!modes.includes(mode)) return sock.sendMessage(chatId, { text: `❌ Invalid mode!\nModes: ${modes.join(', ')}\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
-    await sock.sendMessage(chatId, { text: `✅ Bot mode set to: *${mode.toUpperCase()}*\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+    if (!modes.includes(mode)) return sock.sendMessage(chatId, { text: `❌ Invalid mode!\nModes: ${modes.join(', ')}\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
+    await sock.sendMessage(chatId, { text: `✅ Bot mode set to: *${mode.toUpperCase()}*\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
   }
 };

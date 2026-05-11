@@ -14,6 +14,6 @@ export default {
             '"Two things are infinite: the universe and human stupidity." - Albert Einstein'
         ];
         const quote = quotes[Math.floor(Math.random() * quotes.length)];
-        await sock.sendMessage(chatId, { text: `💭 *Quote:*\n\n${quote}\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+        await sock.sendMessage(chatId, { text: `💭 *Quote:*\n\n${quote}\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
     }
 };

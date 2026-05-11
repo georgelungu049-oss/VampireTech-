@@ -5,6 +5,6 @@ export default {
   aliases: ['reacttoggle', 'switchreact'],
   async execute(sock, msg, args) {
     const chatId = msg.key.remoteJid;
-    await sock.sendMessage(chatId, { text: '🔄 Auto-React toggled!\n\n⚡ *Powered by Vampire Tech* 🧛' }, { quoted: msg });
+    await sock.sendMessage(chatId, { text: '🔄 Auto-React toggled!\n\n> *Powered by Vampire Tech*' }, { quoted: msg });
   }
 };

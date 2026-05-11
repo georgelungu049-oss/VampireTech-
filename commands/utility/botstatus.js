@@ -27,7 +27,7 @@ export default {
                   `📡 *Status:* ✅ ONLINE\n\n` +
                   `🔗 *Channel:* https://whatsapp.com/channel/0029Vb7Smxe89inp918Glr1O\n` +
                   `👥 *Group:* https://chat.whatsapp.com/FjVOr9Ajf924tidBtB5Pgk\n\n` +
-                  `⚡ *Powered by Vampire Tech* 🧛`
+                  `> *Powered by Vampire Tech*`
         }, { quoted: msg });
     }
 };

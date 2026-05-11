@@ -10,7 +10,7 @@ export default {
         const name = target ? `@${target.split('@')[0]}` : 'themself';
         
         await sock.sendMessage(chatId, { 
-            text: `👋 *SLAP!* ${name} got slapped hard! 😱💥\n\n⚡ *Powered by Vampire Tech* 🧛`,
+            text: `👋 *SLAP!* ${name} got slapped hard! 😱💥\n\n> *Powered by Vampire Tech*`,
             mentions: target ? [target] : []
         }, { quoted: msg });
     }

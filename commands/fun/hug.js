@@ -10,7 +10,7 @@ export default {
         const name = target ? `@${target.split('@')[0]}` : 'everyone';
         
         await sock.sendMessage(chatId, { 
-            text: `🤗 *Warm hug!* ${name} got a big hug! 🫂💕\n\n⚡ *Powered by Vampire Tech* 🧛`,
+            text: `🤗 *Warm hug!* ${name} got a big hug! 🫂💕\n\n> *Powered by Vampire Tech*`,
             mentions: target ? [target] : []
         }, { quoted: msg });
     }

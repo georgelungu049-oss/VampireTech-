@@ -12,11 +12,11 @@ export default {
     
     if (action === 'encode') {
       const encoded = Buffer.from(text).toString('base64');
-      await sock.sendMessage(chatId, { text: `🔐 *Encoded:*\n\`${encoded}\`\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+      await sock.sendMessage(chatId, { text: `🔐 *Encoded:*\n\`${encoded}\`\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
     } else if (action === 'decode') {
       try {
         const decoded = Buffer.from(text, 'base64').toString('utf-8');
-        await sock.sendMessage(chatId, { text: `🔓 *Decoded:*\n${decoded}\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+        await sock.sendMessage(chatId, { text: `🔓 *Decoded:*\n${decoded}\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
       } catch (e) {
         await sock.sendMessage(chatId, { text: '❌ Invalid Base64!' }, { quoted: msg });
       }

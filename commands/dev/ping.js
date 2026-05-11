@@ -1,0 +1,1 @@
+export default { name: 'ping', description: 'Check bot latency', category: 'dev', async execute(sock, msg, args) { const start=Date.now(); const sent=await sock.sendMessage(msg.key.remoteJid,{text:'🏓 Pinging...'}); const end=Date.now(); await sock.sendMessage(msg.key.remoteJid,{text:`🏓 Pong! ${end-start}ms\n\n> *Powered by Vampire Tech*`,edit:sent.key}); } };

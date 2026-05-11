@@ -11,7 +11,7 @@ export default {
                   `⚡ *Response:* Instant\n` +
                   `👑 *Owner:* Paxton\n` +
                   `📞 *Contact:* +27687813781\n\n` +
-                  `⚡ *Powered by Vampire Tech* 🧛`
+                  `> *Powered by Vampire Tech*`
         }, { quoted: msg });
     }
 };

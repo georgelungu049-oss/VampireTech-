@@ -10,7 +10,7 @@ export default {
     try {
       const res = await fetch(`https://tinyurl.com/api-create.php?url=${encodeURIComponent(url)}`);
       const short = await res.text();
-      await sock.sendMessage(chatId, { text: `🔗 *Shortened URL*\n\n${short}\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+      await sock.sendMessage(chatId, { text: `🔗 *Shortened URL*\n\n${short}\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
     } catch (e) {
       await sock.sendMessage(chatId, { text: '❌ Failed to shorten!' }, { quoted: msg });
     }

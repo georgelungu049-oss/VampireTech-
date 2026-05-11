@@ -1,0 +1,1 @@
+export default { name: 'version', description: 'Bot version', category: 'paxton', aliases: ['ver','v'], async execute(sock, msg, args) { const chatId=msg.key.remoteJid; await sock.sendMessage(chatId,{text:`🧛 *VAMPIRE MD*\n📌 Version: 2.0.0\n📅 Updated: 2024\n👑 Owner: Paxton\n🩸 Co-Owner: Vamps\n\n> *Powered by Vampire Tech*`},{quoted:msg}); } };

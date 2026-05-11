@@ -10,6 +10,6 @@ export default {
             return sock.sendMessage(chatId, { text: '❌ Provide options separated by commas!\nExample: .pick option1, option2, option3' }, { quoted: msg });
         }
         const chosen = options[Math.floor(Math.random() * options.length)];
-        await sock.sendMessage(chatId, { text: `🎯 *I Pick:*\n\n*${chosen}*\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+        await sock.sendMessage(chatId, { text: `🎯 *I Pick:*\n\n*${chosen}*\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
     }
 };

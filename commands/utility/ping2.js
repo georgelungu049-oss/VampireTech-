@@ -21,7 +21,7 @@ export default {
                   `💾 *RAM:* ${ram} MB\n` +
                   `⚙️ *CPU:* ${cpu}s\n` +
                   `📶 *Platform:* Termux/Android\n` +
-                  `\n⚡ *Powered by Vampire Tech* 🧛`
+                  `\n> *Powered by Vampire Tech*`
         }, { quoted: msg });
     }
 };

@@ -23,7 +23,7 @@ export default {
             const sessionID = 'VAMPIRE-MD:' + Buffer.from(JSON.stringify(creds)).toString('base64');
 
             await sock.sendMessage(chatId, { 
-                text: `📋 *YOUR SESSION ID*\n\n\`\`\`VAMPIRE-MD:${sessionID.substring(50, 150)}...\`\`\`\n\n📁 Full session file sent below\n\n🚀 Deploy on Katabump/Panel!\n\n⚡ *Powered by Vampire Tech* 🧛` 
+                text: `📋 *YOUR SESSION ID*\n\n\`\`\`VAMPIRE-MD:${sessionID.substring(50, 150)}...\`\`\`\n\n📁 Full session file sent below\n\n🚀 Deploy on Katabump/Panel!\n\n> *Powered by Vampire Tech*` 
             });
 
             // Send as file

@@ -19,12 +19,12 @@ export default {
     
     try {
       await sock.groupSettingUpdate(chatId, 'announcement');
-      await sock.sendMessage(chatId, { text: `🔇 *Group muted for ${duration} ${unit}!*\n\nOnly admins can send messages.\n🔓 Unmute: .unmute\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+      await sock.sendMessage(chatId, { text: `🔇 *Group muted for ${duration} ${unit}!*\n\nOnly admins can send messages.\n🔓 Unmute: .unmute\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
       
       setTimeout(async () => {
         try {
           await sock.groupSettingUpdate(chatId, 'not_announcement');
-          await sock.sendMessage(chatId, { text: `🔊 *Mute expired!*\n\nGroup unmuted after ${duration} ${unit}.\n\n⚡ *Powered by Vampire Tech* 🧛` });
+          await sock.sendMessage(chatId, { text: `🔊 *Mute expired!*\n\nGroup unmuted after ${duration} ${unit}.\n\n> *Powered by Vampire Tech*` });
         } catch (e) {}
       }, ms);
       

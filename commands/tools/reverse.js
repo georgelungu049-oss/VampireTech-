@@ -8,6 +8,6 @@ export default {
     const text = args.join(' ');
     if (!text) return sock.sendMessage(chatId, { text: '❌ Provide text!' }, { quoted: msg });
     const reversed = text.split('').reverse().join('');
-    await sock.sendMessage(chatId, { text: `🔄 *Reversed:*\n${reversed}\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+    await sock.sendMessage(chatId, { text: `🔄 *Reversed:*\n${reversed}\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
   }
 };

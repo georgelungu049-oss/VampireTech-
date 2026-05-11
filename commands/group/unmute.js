@@ -10,7 +10,7 @@ export default {
     }
     try {
       await sock.groupSettingUpdate(sender, 'not_announcement');
-      await sock.sendMessage(sender, { text: '🔊 *Group unmuted!* Everyone can send messages.\n\n⚡ *Powered by Vampire Tech* 🧛' }, { quoted: msg });
+      await sock.sendMessage(sender, { text: '🔊 *Group unmuted!* Everyone can send messages.\n\n> *Powered by Vampire Tech*' }, { quoted: msg });
     } catch (error) {
       await sock.sendMessage(sender, { text: '❌ Failed to unmute!' }, { quoted: msg });
     }

@@ -13,7 +13,7 @@ export default {
             `🚂 *Railway:*\nhttps://railway.app/new\n\n` +
             `🔄 *Replit:*\nhttps://replit.com/github/VampireTech-\n\n` +
             `🐱 *Katabump:*\nImport from GitHub\n\n` +
-            `⚡ *Powered by Vampire Tech* 🧛`
+            `> *Powered by Vampire Tech*`
     }, { quoted: msg });
   }
 };

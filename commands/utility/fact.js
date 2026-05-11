@@ -18,6 +18,6 @@ export default {
             '🌧️ It can rain diamonds on Jupiter and Saturn!'
         ];
         const fact = facts[Math.floor(Math.random() * facts.length)];
-        await sock.sendMessage(chatId, { text: `📚 *Random Fact:*\n\n${fact}\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+        await sock.sendMessage(chatId, { text: `📚 *Random Fact:*\n\n${fact}\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
     }
 };

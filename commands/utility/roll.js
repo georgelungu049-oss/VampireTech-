@@ -7,6 +7,6 @@ export default {
         const chatId = msg.key.remoteJid;
         const result = Math.floor(Math.random() * 6) + 1;
         const diceEmojis = ['', '⚀', '⚁', '⚂', '⚃', '⚄', '⚅'];
-        await sock.sendMessage(chatId, { text: `🎲 *Dice Roll:*\n\n${diceEmojis[result]} You rolled a *${result}*!\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+        await sock.sendMessage(chatId, { text: `🎲 *Dice Roll:*\n\n${diceEmojis[result]} You rolled a *${result}*!\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
     }
 };

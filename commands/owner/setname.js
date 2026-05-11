@@ -10,6 +10,6 @@ export default {
         if (!newName) {
             return sock.sendMessage(chatId, { text: '❌ Provide a new bot name!' }, { quoted: msg });
         }
-        await sock.sendMessage(chatId, { text: `✅ Bot name changed to: *${newName}*\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+        await sock.sendMessage(chatId, { text: `✅ Bot name changed to: *${newName}*\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
     }
 };

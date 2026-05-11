@@ -12,7 +12,7 @@ export default {
     
     if (!action) {
       return sock.sendMessage(chatId, { 
-        text: `⏰ *Group Timer*\n\n.grouptime close <hours>\n.grouptime open <hours>\n.grouptime auto 22:00 06:00\n\n⚡ *Powered by Vampire Tech* 🧛` 
+        text: `⏰ *Group Timer*\n\n.grouptime close <hours>\n.grouptime open <hours>\n.grouptime auto 22:00 06:00\n\n> *Powered by Vampire Tech*` 
       }, { quoted: msg });
     }
     
@@ -20,18 +20,18 @@ export default {
       const hours = parseInt(args[1]);
       try {
         await sock.groupSettingUpdate(chatId, 'announcement');
-        await sock.sendMessage(chatId, { text: `🔇 *Group closed for ${hours} hours!*\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+        await sock.sendMessage(chatId, { text: `🔇 *Group closed for ${hours} hours!*\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
         
         setTimeout(async () => {
           await sock.groupSettingUpdate(chatId, 'not_announcement');
-          await sock.sendMessage(chatId, { text: '🔊 *Group reopened!*\n\n⚡ *Powered by Vampire Tech* 🧛' });
+          await sock.sendMessage(chatId, { text: '🔊 *Group reopened!*\n\n> *Powered by Vampire Tech*' });
         }, hours * 60 * 60 * 1000);
       } catch (e) {}
     } else if (action === 'open' && args[1]) {
       const hours = parseInt(args[1]);
       try {
         await sock.groupSettingUpdate(chatId, 'not_announcement');
-        await sock.sendMessage(chatId, { text: `🔊 *Group open for ${hours} hours!*\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+        await sock.sendMessage(chatId, { text: `🔊 *Group open for ${hours} hours!*\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
       } catch (e) {}
     }
   }

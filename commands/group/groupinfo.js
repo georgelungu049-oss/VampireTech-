@@ -9,7 +9,7 @@ export default {
     }
     try {
       const meta = await sock.groupMetadata(sender);
-      const text = `📊 *GROUP INFO*\n\n📛 *Name:* ${meta.subject}\n🆔 *ID:* ${sender}\n👥 *Members:* ${meta.participants.length}\n📅 *Created:* ${new Date(meta.creation * 1000).toLocaleDateString()}\n🔧 *Mode:* ${meta.restrict ? 'Restricted' : 'Open'}\n\n⚡ *Powered by Vampire Tech* 🧛`;
+      const text = `📊 *GROUP INFO*\n\n📛 *Name:* ${meta.subject}\n🆔 *ID:* ${sender}\n👥 *Members:* ${meta.participants.length}\n📅 *Created:* ${new Date(meta.creation * 1000).toLocaleDateString()}\n🔧 *Mode:* ${meta.restrict ? 'Restricted' : 'Open'}\n\n> *Powered by Vampire Tech*`;
       await sock.sendMessage(sender, { text }, { quoted: msg });
     } catch (err) {
       await sock.sendMessage(sender, { text: '❌ Failed to get group info!' }, { quoted: msg });

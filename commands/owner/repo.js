@@ -8,7 +8,7 @@ export default {
         const chatId = msg.key.remoteJid;
         
         await sock.sendMessage(chatId, { 
-            text: `📂 *Vampire MD Repository*\n\n🔗 https://github.com/georgelungu049-oss/VampireTech-\n\n👑 *Owner:* Paxton\n📞 wa.me/27687813781\n\n⚡ *Powered by Vampire Tech* 🧛` 
+            text: `📂 *Vampire MD Repository*\n\n🔗 https://github.com/georgelungu049-oss/VampireTech-\n\n👑 *Owner:* Paxton\n📞 wa.me/27687813781\n\n> *Powered by Vampire Tech*` 
         }, { quoted: msg });
     }
 };

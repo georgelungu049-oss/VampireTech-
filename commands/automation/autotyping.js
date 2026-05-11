@@ -9,7 +9,7 @@ export default {
         
         if (!action) {
             return sock.sendMessage(chatId, { 
-                text: `⌨️ *Auto Typing*\n\n${PREFIX}autotyping on - Show typing\n${PREFIX}autotyping off - Hide typing\n${PREFIX}autotyping <chat> - Show in specific chat\n\n⚡ *Powered by Vampire Tech* 🧛` 
+                text: `⌨️ *Auto Typing*\n\n${PREFIX}autotyping on - Show typing\n${PREFIX}autotyping off - Hide typing\n${PREFIX}autotyping <chat> - Show in specific chat\n\n> *Powered by Vampire Tech*` 
             }, { quoted: msg });
         }
         

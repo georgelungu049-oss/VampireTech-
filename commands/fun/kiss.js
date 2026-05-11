@@ -13,7 +13,7 @@ export default {
         const kiss = kisses[Math.floor(Math.random() * kisses.length)];
         
         await sock.sendMessage(chatId, { 
-            text: `${kiss} *Smooch!* You kissed ${name}! 💕\n\n⚡ *Powered by Vampire Tech* 🧛`,
+            text: `${kiss} *Smooch!* You kissed ${name}! 💕\n\n> *Powered by Vampire Tech*`,
             mentions: target ? [target] : []
         }, { quoted: msg });
     }

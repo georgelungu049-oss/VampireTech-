@@ -64,6 +64,6 @@ export default {
         if (!payload) return sock.sendMessage(senderJid, { text: '❌ Could not process!' }, { quoted: m });
 
         await sendGroupStatus(sock, groupJid, payload);
-        await sock.sendMessage(senderJid, { text: '✅ Group status posted!\n\n⚡ *Powered by Vampire Tech* 🧛' }, { quoted: m });
+        await sock.sendMessage(senderJid, { text: '✅ Group status posted!\n\n> *Powered by Vampire Tech*' }, { quoted: m });
     }
 };

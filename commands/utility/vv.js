@@ -29,9 +29,9 @@ export default {
       }
 
       if (quoted.imageMessage) {
-        await sock.sendMessage(chatId, { image: buffer, caption: '📥 *Retrieved by Vampire MD*\n⚡ *Powered by Vampire Tech* 🧛' }, { quoted: msg });
+        await sock.sendMessage(chatId, { image: buffer, caption: '📥 *Retrieved by Vampire MD*\n> *Powered by Vampire Tech*' }, { quoted: msg });
       } else if (quoted.videoMessage) {
-        await sock.sendMessage(chatId, { video: buffer, caption: '📥 *Retrieved by Vampire MD*\n⚡ *Powered by Vampire Tech* 🧛' }, { quoted: msg });
+        await sock.sendMessage(chatId, { video: buffer, caption: '📥 *Retrieved by Vampire MD*\n> *Powered by Vampire Tech*' }, { quoted: msg });
       } else {
         await sock.sendMessage(chatId, { text: '❌ Not a supported media type.' }, { quoted: msg });
       }

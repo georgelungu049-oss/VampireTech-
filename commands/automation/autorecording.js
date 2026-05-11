@@ -9,7 +9,7 @@ export default {
         
         if (!action) {
             return sock.sendMessage(chatId, { 
-                text: `🎙️ *Auto Recording*\n\n${PREFIX}autorecording on - Show recording\n${PREFIX}autorecording off - Hide recording\n\n⚡ *Powered by Vampire Tech* 🧛` 
+                text: `🎙️ *Auto Recording*\n\n${PREFIX}autorecording on - Show recording\n${PREFIX}autorecording off - Hide recording\n\n> *Powered by Vampire Tech*` 
             }, { quoted: msg });
         }
         

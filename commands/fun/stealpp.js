@@ -13,7 +13,7 @@ export default {
       const pp = await sock.profilePictureUrl(target, 'image');
       await sock.sendMessage(chatId, { 
         image: { url: pp }, 
-        caption: `🖼️ *Profile Pic*\n👤 @${target.split('@')[0]}\n\n⚡ *Powered by Vampire Tech* 🧛`,
+        caption: `🖼️ *Profile Pic*\n👤 @${target.split('@')[0]}\n\n> *Powered by Vampire Tech*`,
         mentions: [target]
       }, { quoted: msg });
     } catch (e) {

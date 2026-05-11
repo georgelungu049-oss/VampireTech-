@@ -10,7 +10,7 @@ export default {
     
     if (!input) {
       return sock.sendMessage(chatId, { 
-        text: `💬 *PREFIX SETTINGS*\n\nCurrent: *${prefix || 'prefixless'}*\n\n.setprefix ! - Set to !\n.setprefix . - Set to .\n.setprefix none - Prefixless mode\n.setprefix reset - Default prefix\n\n⚡ *Powered by Vampire Tech* 🧛` 
+        text: `💬 *PREFIX SETTINGS*\n\nCurrent: *${prefix || 'prefixless'}*\n\n.setprefix ! - Set to !\n.setprefix . - Set to .\n.setprefix none - Prefixless mode\n.setprefix reset - Default prefix\n\n> *Powered by Vampire Tech*` 
       }, { quoted: msg });
     }
     
@@ -19,7 +19,7 @@ export default {
       if (extra?.updatePrefix) {
         extra.updatePrefix('');
       }
-      return sock.sendMessage(chatId, { text: `🔓 *PREFIXLESS MODE ENABLED!*\n\nNow commands work WITHOUT any prefix!\nJust type: ping, menu, help\n\n.setprefix <char> to add prefix back\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+      return sock.sendMessage(chatId, { text: `🔓 *PREFIXLESS MODE ENABLED!*\n\nNow commands work WITHOUT any prefix!\nJust type: ping, menu, help\n\n.setprefix <char> to add prefix back\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
     }
     
     // Reset to default
@@ -27,7 +27,7 @@ export default {
       if (extra?.updatePrefix) {
         extra.updatePrefix('.');
       }
-      return sock.sendMessage(chatId, { text: `🔄 *Prefix reset to default:* \".\"\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+      return sock.sendMessage(chatId, { text: `🔄 *Prefix reset to default:* \".\"\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
     }
     
     // Custom prefix
@@ -38,10 +38,10 @@ export default {
     if (extra?.updatePrefix) {
       const result = extra.updatePrefix(input);
       if (result.success) {
-        return sock.sendMessage(chatId, { text: `✅ Prefix changed to: *${input}*\n\nOld prefix: ${result.oldPrefix}\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+        return sock.sendMessage(chatId, { text: `✅ Prefix changed to: *${input}*\n\nOld prefix: ${result.oldPrefix}\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
       }
     }
     
-    await sock.sendMessage(chatId, { text: `✅ Prefix set to: *${input}*\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+    await sock.sendMessage(chatId, { text: `✅ Prefix set to: *${input}*\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
   }
 };

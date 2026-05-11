@@ -79,7 +79,7 @@ export default {
     const prefix = '.';
 
     if (!args[0]) {
-      return sock.sendMessage(groupId, { text: `📋 *ADD*\n\n${prefix}add 27687xxxxx\n${prefix}add owner\n${prefix}add link\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+      return sock.sendMessage(groupId, { text: `📋 *ADD*\n\n${prefix}add 27687xxxxx\n${prefix}add owner\n${prefix}add link\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
     }
 
     const command = args[0].toLowerCase();
@@ -97,7 +97,7 @@ export default {
     }
 
     if (command === 'link') {
-      return sock.sendMessage(groupId, { text: `🔗 ${GROUP_LINK}\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+      return sock.sendMessage(groupId, { text: `🔗 ${GROUP_LINK}\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
     }
 
     let numbersToAdd = args[0].includes(',') ? args.join(' ').split(',').map(n => n.trim().replace(/[^0-9]/g, '') + '@s.whatsapp.net').filter(n => n.length > 15) : [args[0].replace(/[^0-9]/g, '') + '@s.whatsapp.net'];

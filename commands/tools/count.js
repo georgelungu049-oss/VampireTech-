@@ -10,6 +10,6 @@ export default {
     const chars = text.length;
     const words = text.split(/\s+/).filter(w => w).length;
     const lines = text.split('\n').length;
-    await sock.sendMessage(chatId, { text: `📊 *Text Stats*\n\n📝 Words: ${words}\n🔤 Chars: ${chars}\n📄 Lines: ${lines}\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+    await sock.sendMessage(chatId, { text: `📊 *Text Stats*\n\n📝 Words: ${words}\n🔤 Chars: ${chars}\n📄 Lines: ${lines}\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
   }
 };

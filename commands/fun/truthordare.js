@@ -28,7 +28,7 @@ export default {
         const result = isTruth ? truths[Math.floor(Math.random() * truths.length)] : dares[Math.floor(Math.random() * dares.length)];
         
         await sock.sendMessage(chatId, { 
-            text: `🎮 *${isTruth ? 'TRUTH' : 'DARE'}*\n\n${result}\n\n⚡ *Powered by Vampire Tech* 🧛`
+            text: `🎮 *${isTruth ? 'TRUTH' : 'DARE'}*\n\n${result}\n\n> *Powered by Vampire Tech*`
         }, { quoted: msg });
     }
 };

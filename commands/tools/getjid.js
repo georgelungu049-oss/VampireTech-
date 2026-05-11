@@ -27,7 +27,7 @@ export default {
         resolvedJid = await resolveJid(sock, sender);
       }
 
-      await sock.sendMessage(chatJid, { text: `🆔 *JID*\n\`${resolvedJid}\`\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: m });
+      await sock.sendMessage(chatJid, { text: `🆔 *JID*\n\`${resolvedJid}\`\n\n> *Powered by Vampire Tech*` }, { quoted: m });
     } catch (err) {
       await sock.sendMessage(chatJid, { text: `❌ ${err.message}` }, { quoted: m });
     }

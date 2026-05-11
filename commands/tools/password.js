@@ -9,6 +9,6 @@ export default {
     const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%^&*()';
     let pass = '';
     for (let i = 0; i < length; i++) pass += chars[Math.floor(Math.random() * chars.length)];
-    await sock.sendMessage(chatId, { text: `🔐 *Password (${length} chars)*\n\`${pass}\`\n\n⚡ *Powered by Vampire Tech* 🧛` }, { quoted: msg });
+    await sock.sendMessage(chatId, { text: `🔐 *Password (${length} chars)*\n\`${pass}\`\n\n> *Powered by Vampire Tech*` }, { quoted: msg });
   }
 };
