@@ -279,7 +279,7 @@ function updateTerminalHeader() {
 `));
 }
 
-prefixCache = loadPrefixFromFiles();
+prefixCache = process.env.PREFIX !== undefined ? process.env.PREFIX : loadPrefixFromFiles();
 isPrefixless = prefixCache === '' ? true : false;
 updateTerminalHeader();
 
