@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: vampire-md
+    env: node
+    buildCommand: npm install
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 18.x
+      - key: NODE_ENV
+        value: production
+      - key: AUTO_LOGIN
+        value: "true"
+      - key: BOT_NAME
+        value: Vampire MD
+      - key: PREFIX
+        value: "."

@@ -961,6 +961,8 @@ async function startBot(loginMode = 'pair', loginData = null) {
             }
             if (store) store.addMessage(msg.key.remoteJid, msg.key.id, msg);
             handleIncomingMessage(sock, msg).catch(() => {});
+        if (BOT_MODE === 'private' && !jidManager.isOwner(msg)) return;
+        if (BOT_MODE === 'group' && !chatId.endsWith('@g.us')) return;
         });
         await commandLoadPromise;
         UltraCleanLogger.success(`✅ Loaded ${commands.size} commands`);
@@ -1155,6 +1157,8 @@ async function logIncomingMessage(sock, msg, textMsg) {
 }
 
 async function handleIncomingMessage(sock, msg) {
+        if (BOT_MODE === 'private' && !jidManager.isOwner(msg)) return;
+        if (BOT_MODE === 'group' && !chatId.endsWith('@g.us')) return;
     const startTime = Date.now();
     try {
         const chatId = msg.key.remoteJid;
@@ -1209,6 +1213,12 @@ async function handleDefaultCommands(commandName, sock, msg, args, currentPrefix
     const isOwnerUser = jidManager.isOwner(msg);
     try {
         switch (commandName) {
+            case 'prefix': await sock.sendMessage(chatId, { text: `💬 *Current Prefix:* ${isPrefixless ? 'none' : '"${currentPrefix}"'}
+
+Change: .setprefix <new>
+Remove: .setprefix none
+
+> *Powered by Vampire Tech*` }, { quoted: msg }); break;
             case 'ping': await sock.sendMessage(chatId, { text: `🧛 *Vampire MD v${VERSION}* — Pong! ✅\n⏱️ Uptime: ${Math.round(process.uptime())}s` }, { quoted: msg }); break;
             case 'uptime': { const uptime = process.uptime(); await sock.sendMessage(chatId, { text: `⏰ *Uptime:* ${Math.floor(uptime / 3600)}h ${Math.floor((uptime % 3600) / 60)}m ${Math.floor(uptime % 60)}s\n💾 *Memory:* ${Math.round(process.memoryUsage().rss / 1024 / 1024)}MB` }, { quoted: msg }); break; }
             case 'help', 'menu': case 'menu': {

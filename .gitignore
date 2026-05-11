@@ -29,3 +29,5 @@ pairing.html
 public/
 session/
 creds.json
+session/
+*.json
