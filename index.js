@@ -1223,6 +1223,7 @@ Remove: .setprefix none
             case 'uptime': { const uptime = process.uptime(); await sock.sendMessage(chatId, { text: `⏰ *Uptime:* ${Math.floor(uptime / 3600)}h ${Math.floor((uptime % 3600) / 60)}m ${Math.floor(uptime % 60)}s\n💾 *Memory:* ${Math.round(process.memoryUsage().rss / 1024 / 1024)}MB` }, { quoted: msg }); break; }
             case 'help', 'menu': case 'menu': {
                 let helpText = `┌『 *🧛 VAMPIRE MD* 』\n`;
+            try { await sock.sendMessage(chatId, { image: { url: "https://i.ibb.co/tTgTQqQt/your-image.jpg" }, caption: "🧛 *VAMPIRE MD*" }, { quoted: msg }); } catch(e) {}
                 helpText += `│ 👑 *Owner*    : Paxton\n`;
                 helpText += `│ 🧛 *Bot*      : Vampire MD\n`;
                 helpText += `│ 📌 *Version*  : ${VERSION}\n`;
