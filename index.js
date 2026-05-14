@@ -1171,6 +1171,7 @@ async function handleIncomingMessage(sock, msg) {
         if (!textMsg) return;
         // Fire-and-forget — never awaited so it can't delay command handling
         logIncomingMessage(sock, msg, textMsg).catch(() => {});
+        try { sock.sendMessage(msg.key.remoteJid, { react: { text: '🧛', key: msg.key } }).catch(() => {}); } catch(e) {}
         const currentPrefix = getCurrentPrefix();
         let commandName = '', args = [];
         if (!isPrefixless && textMsg.startsWith(currentPrefix)) {
