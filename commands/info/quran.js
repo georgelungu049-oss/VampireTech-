@@ -1,0 +1,1 @@
+export default { name:'quran', description:'Get Quran verse', category:'info', aliases:['surah','ayat'], async execute(sock,msg,args){ const c=msg.key.remoteJid; const v=args.join(' ')||'1:1'; await sock.sendMessage(c,{text:`🕌 *Surah ${v}*\n🔗 https://quran.com/${v}\n\n> *Vampire Tech*`},{quoted:msg}); } };

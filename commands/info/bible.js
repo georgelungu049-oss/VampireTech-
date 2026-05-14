@@ -1,0 +1,1 @@
+export default { name:'bible', description:'Get bible verse', category:'info', aliases:['verse','scripture'], async execute(sock,msg,args){ const c=msg.key.remoteJid; const v=args.join(' ')||'John 3:16'; await sock.sendMessage(c,{text:`📖 *${v}*\n🔗 https://bible.com/bible/1/${v.toLowerCase().replace(' ','.')}\n\n> *Vampire Tech*`},{quoted:msg}); } };
