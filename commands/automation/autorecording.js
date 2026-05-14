@@ -1,25 +1,19 @@
 export default {
-    name: 'autorecording',
-    alias: ['recording', 'autorec'],
-    description: 'Show recording indicator',
-    category: 'automation',
-    async execute(sock, msg, args, PREFIX) {
-        const chatId = msg.key.remoteJid;
-        const action = args[0]?.toLowerCase();
-        
-        if (!action) {
-            return sock.sendMessage(chatId, { 
-                text: `🎙️ *Auto Recording*\n\n${PREFIX}autorecording on - Show recording\n${PREFIX}autorecording off - Hide recording\n\n> *Powered by Vampire Tech*` 
-            }, { quoted: msg });
-        }
-        
-        if (action === 'on') {
-            await sock.sendPresenceUpdate('recording', chatId);
-            return sock.sendMessage(chatId, { text: '🎙️ Recording indicator shown!' }, { quoted: msg });
-        }
-        if (action === 'off') {
-            await sock.sendPresenceUpdate('paused', chatId);
-            return sock.sendMessage(chatId, { text: '🎙️ Recording indicator stopped!' }, { quoted: msg });
-        }
+  name:'autorecording',
+  category:'automation',
+  aliases:['recording','autorec'],
+  ownerOnly:true,
+  async execute(sock, msg, args) {
+    const c = msg.key.remoteJid;
+    const a = args[0]?.toLowerCase() || 'on';
+    if (a === 'on') {
+      await sock.sendPresenceUpdate('recording', c);
+      return sock.sendMessage(c, { text: '🎙️ *Recording indicator shown!*\n\n> *Vampire Tech* 🧛' }, { quoted: msg });
     }
+    if (a === 'off') {
+      await sock.sendPresenceUpdate('paused', c);
+      return sock.sendMessage(c, { text: '🎙️ *Recording indicator stopped!*\n\n> *Vampire Tech* 🧛' }, { quoted: msg });
+    }
+    return sock.sendMessage(c, { text: '🎙️ .autorecording on/off\n\n> *Vampire Tech* 🧛' }, { quoted: msg });
+  }
 };
