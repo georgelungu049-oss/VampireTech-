@@ -1,21 +1,28 @@
-import fs from 'fs';
-
-function getOwnerName() {
-  try { return fs.readFileSync('./data/ownername.txt','utf8').trim(); } catch(e) {}
-  return 'Paxton';
-}
-
 export default {
   name: 'owner',
-  description: 'Show owner contact',
   category: 'owner',
-  aliases: ['creator', 'dev', 'paxton'],
-  async execute(sock, msg, args) {
-    const chatId = msg.key.remoteJid;
-    const ownerName = getOwnerName();
+  aliases: ['creator', 'dev', 'lord', 'paxton'],
+  async execute(sock, msg) {
+    const c = msg.key.remoteJid;
     
-    await sock.sendMessage(chatId, { 
-      text: `╔══════════════════════════╗\n║   🧛 *VAMPIRE MD OWNER*   ║\n╚══════════════════════════╝\n\n👑 *Owner:* ${ownerName}\n📞 +27 70 427 8701 🇿🇦\n\n🩸 *Co-Owner:* SavageMulla\n📞 +263 77 669 9348 🇿🇼\n\n> *Powered by Vampire Tech*`
+    // Send contact card
+    const vcard = 'BEGIN:VCARD\nVERSION:3.0\nFN:Paxton (Vampire Lord)\nORG:Vampire Tech\nTEL;type=CELL:+27704278701\nEND:VCARD';
+    
+    await sock.sendMessage(c, {
+      contacts: {
+        displayName: '🧛 Paxton (Vampire Lord)',
+        contacts: [{ vcard }]
+      }
+    }, { quoted: msg });
+
+    // Also send co-owner contact
+    const vcard2 = 'BEGIN:VCARD\nVERSION:3.0\nFN:SavageMulla (Co-Owner)\nORG:Vampire Tech\nTEL;type=CELL:+263776699348\nEND:VCARD';
+    
+    await sock.sendMessage(c, {
+      contacts: {
+        displayName: '🩸 SavageMulla (Co-Owner)',
+        contacts: [{ vcard: vcard2 }]
+      }
     }, { quoted: msg });
   }
 };

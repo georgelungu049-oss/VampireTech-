@@ -1,18 +1,1 @@
-export default {
-  name: 'mute',
-  description: 'Mute the group (admin only messages)',
-  category: 'group',
-  alias: ['lock', 'silence', 'close'],
-  async execute(sock, msg, args) {
-    const sender = msg.key.remoteJid;
-    if (!sender.endsWith('@g.us')) {
-      return sock.sendMessage(sender, { text: '❌ Group only!' }, { quoted: msg });
-    }
-    try {
-      await sock.groupSettingUpdate(sender, 'announcement');
-      await sock.sendMessage(sender, { text: '🔇 *Group muted!* Only admins can send messages.\n\n> *Powered by Vampire Tech*' }, { quoted: msg });
-    } catch (error) {
-      await sock.sendMessage(sender, { text: '❌ Failed to mute! I need admin permissions.' }, { quoted: msg });
-    }
-  }
-};
+export default { name:'mute', category:'group', aliases:['silence','lock'], async execute(sock,msg){ const c=msg.key.remoteJid; if(!c.endsWith('@g.us')) return; try{ await sock.groupSettingUpdate(c,'announcement'); await sock.sendMessage(c,{text:'🦇 *SILENCE!*\n\nThe coven has been silenced. Only Alphas may speak.\n\n> *Vampire Tech* 🧛'},{quoted:msg}); }catch(e){ await sock.sendMessage(c,{text:'💀 Need Alpha powers!'},{quoted:msg}); } } };

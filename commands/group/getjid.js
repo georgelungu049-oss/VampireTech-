@@ -1,0 +1,1 @@
+export default { name:'getjid', category:'group', aliases:['jid','id'], async execute(sock,msg){ const c=msg.key.remoteJid; const m=msg.message?.extendedTextMessage?.contextInfo?.mentionedJid?.[0]||c; await sock.sendMessage(c,{text:`🆔 *SOUL IDENTITY*\n\`${m}\`\n\n> *Vampire Tech* 🧛`},{quoted:msg}); } };

@@ -1,14 +1,1 @@
-export default {
-    name: 'repo',
-    description: 'Get bot repository link',
-    category: 'owner',
-    aliases: ['repository', 'github', 'source', 'sc'],
-    
-    async execute(sock, msg, args) {
-        const chatId = msg.key.remoteJid;
-        
-        await sock.sendMessage(chatId, { 
-            text: `📂 *Vampire MD Repository*\n\n🔗 https://github.com/georgelungu049-oss/VampireTech-\n\n👑 *Owner:* Paxton\n📞 wa.me/27687813781\n\n> *Powered by Vampire Tech*` 
-        }, { quoted: msg });
-    }
-};
+export default { name:'repo', category:'owner', aliases:['repository','source','darkcode'], async execute(sock,msg){ const c=msg.key.remoteJid; await sock.sendMessage(c,{text:`📂 *DARK CODE REPOSITORY*\n\n🔗 github.com/georgelungu049-oss/VampireTech-\n\n🧛 430+ Commands\n🦇 Multi-Device\n🌑 Open Source\n⚡ Always Updated\n\n*Star the darkness ⭐*\n\n> *Vampire Tech* 🧛`},{quoted:msg}); } };

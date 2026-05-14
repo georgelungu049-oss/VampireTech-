@@ -1,0 +1,1 @@
+export default { name:'flip', category:'games', aliases:['coin','toss'], async execute(sock,msg){ const c=msg.key.remoteJid; await sock.sendMessage(c,{text:`🪙 *FLIP!*\n${Math.random()<0.5?'🦇 Heads':'💀 Tails'}\n\n> *Vampire Tech*`},{quoted:msg}); } };
